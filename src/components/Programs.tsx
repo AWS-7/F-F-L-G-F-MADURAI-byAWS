@@ -1,5 +1,6 @@
 import { ArrowRight, Flame, Dumbbell, Wind, Leaf, X, Clock, Users, Target } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useSectionReveal } from '../hooks/useParallaxReveal';
 import { useEffect, useRef, useState } from 'react';
 import aerobicsImg from '../images/aerobics.jpg';
 import hiitImg from '../images/scada.jpg';
@@ -78,7 +79,10 @@ const programs = [
 ];
 
 export default function Programs() {
-  const { ref, isVisible } = useIntersectionObserver(0.1);
+  const { ref: headerRef, isVisible: headerVisible } = useIntersectionObserver(0.1);
+  const { ref: cardsRef, isVisible: cardsVisible } = useSectionReveal(0.1);
+  const { ref: headingRef, isVisible: headingVisible } = useSectionReveal(0.1);
+  const { ref: subtitleRef, isVisible: subtitleVisible } = useSectionReveal(0.1);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedProgram, setSelectedProgram] = useState<typeof programs[0] | null>(null);
@@ -150,35 +154,43 @@ export default function Programs() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          ref={ref}
-          className={`text-center mb-16 section-fade ${isVisible ? 'visible' : ''}`}
-        >
+        <div ref={headerRef} className="text-center mb-16">
           <p
-            className="text-xs font-semibold tracking-[0.4em] uppercase mb-4"
-            style={{ color: '#800080' }}
+            ref={subtitleRef}
+            className={`reveal-subtitle gpu-smooth text-xs font-semibold tracking-[0.4em] uppercase mb-4 ${subtitleVisible ? 'is-visible' : ''}`}
+            style={{ color: '#800080', transitionDelay: '0.1s' }}
           >
             The Sanctuary
           </p>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+          <h2 
+            ref={headingRef}
+            className={`reveal-heading gpu-smooth font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${headingVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0s' }}
+          >
             Our{' '}
             <span className="gold-text">Programs</span>
           </h2>
-          <div className="gold-line w-24 mx-auto mb-8" />
-          <p className="text-white/60 text-lg max-w-2xl mx-auto">
+          <div 
+            className={`reveal-text gpu-smooth gold-line w-24 mx-auto mb-8 ${headingVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0.2s' }}
+          />
+          <p 
+            className={`reveal-text gpu-smooth text-white/60 text-lg max-w-2xl mx-auto ${headerVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0.3s' }}
+          >
             Four transformative disciplines. One sacred space. Every session designed to elevate your body, mind, and spirit.
           </p>
         </div>
 
         {/* Desktop Grid Layout */}
-        <div className="hidden lg:grid grid-cols-4 gap-5">
+        <div ref={cardsRef} className="hidden lg:grid grid-cols-4 gap-5">
           {programs.map((program, index) => (
             <div
               key={program.title}
-              className="program-card dark-card cursor-pointer group"
+              className={`reveal-card gpu-smooth program-card dark-card cursor-pointer group ${cardsVisible ? 'is-visible' : ''}`}
               style={{
                 borderRadius: '4px',
-                animationDelay: `${index * 0.1}s`,
+                transitionDelay: `${index * 0.15}s`,
               }}
             >
               <div

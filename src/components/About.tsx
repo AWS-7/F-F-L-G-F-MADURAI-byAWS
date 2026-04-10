@@ -1,5 +1,6 @@
 import { Shield, Heart, Star, Users } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useSectionReveal } from '../hooks/useParallaxReveal';
 import { useState, useEffect } from 'react';
 import femme4 from '../images/femme4.webp';
 
@@ -75,29 +76,22 @@ const pillars = [
 ];
 
 export default function About() {
-  const { ref, isVisible } = useIntersectionObserver(0.1);
+  const { ref: sectionRef, isVisible } = useIntersectionObserver(0.1);
+  const { ref: headingRef, isVisible: headingVisible } = useSectionReveal(0.1);
+  const { ref: subtitleRef, isVisible: subtitleVisible } = useSectionReveal(0.1);
+  const { ref: textRef, isVisible: textVisible } = useSectionReveal(0.1);
+  const { ref: imageRef, isVisible: imageVisible } = useSectionReveal(0.15);
+  const { ref: pillarsRef, isVisible: pillarsVisible } = useSectionReveal(0.1);
+  const { ref: quoteRef, isVisible: quoteVisible } = useSectionReveal(0.1);
   const [visibleStats, setVisibleStats] = useState([false, false, false]);
 
   // Typing/fading effect - show stats one by one
   useEffect(() => {
     if (isVisible) {
-      // Reset and start animation
       setVisibleStats([false, false, false]);
-      
-      // Show first stat immediately
-      setTimeout(() => {
-        setVisibleStats([true, false, false]);
-      }, 100);
-      
-      // Show second stat after 800ms
-      setTimeout(() => {
-        setVisibleStats([true, true, false]);
-      }, 900);
-      
-      // Show third stat after 1600ms
-      setTimeout(() => {
-        setVisibleStats([true, true, true]);
-      }, 1700);
+      setTimeout(() => setVisibleStats([true, false, false]), 100);
+      setTimeout(() => setVisibleStats([true, true, false]), 900);
+      setTimeout(() => setVisibleStats([true, true, true]), 1700);
     }
   }, [isVisible]);
 
@@ -111,27 +105,32 @@ export default function About() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          ref={ref}
-          className={`section-fade ${isVisible ? 'visible' : ''}`}
-        >
+        <div ref={sectionRef}>
           <div className="text-center mb-16">
             <p
-              className="text-xs font-semibold tracking-[0.4em] uppercase mb-4"
-              style={{ color: '#800080' }}
+              ref={subtitleRef}
+              className={`reveal-subtitle gpu-smooth text-xs font-semibold tracking-[0.4em] uppercase mb-4 ${subtitleVisible ? 'is-visible' : ''}`}
+              style={{ color: '#800080', transitionDelay: '0.1s' }}
             >
               Our Story
             </p>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+            <h2 
+              ref={headingRef}
+              className={`reveal-heading gpu-smooth font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${headingVisible ? 'is-visible' : ''}`}
+              style={{ transitionDelay: '0s' }}
+            >
               Born on{' '}
-              <span
-                className="gold-text"
-              >
-                April 11, 2025
-              </span>
+              <span className="gold-text">April 11, 2025</span>
             </h2>
-            <div className="gold-line w-24 mx-auto mb-8" />
-            <p className="text-white/60 text-lg max-w-3xl mx-auto leading-relaxed">
+            <div 
+              className={`reveal-text gpu-smooth gold-line w-24 mx-auto mb-8 ${headingVisible ? 'is-visible' : ''}`}
+              style={{ transitionDelay: '0.2s' }}
+            />
+            <p 
+              ref={textRef}
+              className={`reveal-text gpu-smooth text-white/60 text-lg max-w-3xl mx-auto leading-relaxed ${textVisible ? 'is-visible' : ''}`}
+              style={{ transitionDelay: '0.3s' }}
+            >
               Femme Flex was founded with a singular vision: to create Madurai's most empowering
               women-only fitness sanctuary. From our opening day, we set out to redefine what it
               means to train — combining elite programming, luxurious spaces, and an unbreakable
@@ -169,10 +168,13 @@ export default function About() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+          {/* Image with mask reveal */}
           <div
-            className="relative overflow-hidden"
+            ref={imageRef}
+            className={`image-reveal-container gpu-smooth relative overflow-hidden ${imageVisible ? 'is-revealed' : ''}`}
             style={{ borderRadius: '4px' }}
           >
+            <div className="image-reveal-mask" />
             <img
               src={femme4}
               alt="Femme Flex Gym Interior"
@@ -191,12 +193,16 @@ export default function About() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {pillars.map((pillar) => (
+          {/* Pillar cards with stagger */}
+          <div ref={pillarsRef} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {pillars.map((pillar, index) => (
               <div
                 key={pillar.title}
-                className="dark-card p-6 card-hover"
-                style={{ borderRadius: '4px' }}
+                className={`reveal-card gpu-smooth dark-card p-6 card-hover ${pillarsVisible ? 'is-visible' : ''}`}
+                style={{ 
+                  borderRadius: '4px',
+                  transitionDelay: `${0.1 + index * 0.15}s`
+                }}
               >
                 <div
                   className="w-10 h-10 flex items-center justify-center mb-4"
@@ -216,7 +222,8 @@ export default function About() {
         </div>
 
         <div
-          className="relative overflow-hidden text-center py-12 px-6"
+          ref={quoteRef}
+          className={`reveal-section gpu-smooth relative overflow-hidden text-center py-12 px-6 ${quoteVisible ? 'is-visible' : ''}`}
           style={{
             background: 'linear-gradient(135deg, rgba(128,0,128,0.2) 0%, rgba(128,0,128,0.05) 100%)',
             border: '1px solid rgba(212,175,55,0.2)',
@@ -224,16 +231,27 @@ export default function About() {
           }}
         >
           <div className="shimmer-bg absolute inset-0 pointer-events-none" />
-          <p className="text-xs font-semibold tracking-[0.4em] uppercase mb-4" style={{ color: '#800080' }}>
+          <p 
+            className={`reveal-subtitle gpu-smooth text-xs font-semibold tracking-[0.4em] uppercase mb-4 ${quoteVisible ? 'is-visible' : ''}`}
+            style={{ color: '#800080', transitionDelay: '0.2s' }}
+          >
             The Flex Philosophy
           </p>
-          <blockquote className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white max-w-4xl mx-auto leading-relaxed">
+          <blockquote 
+            className={`reveal-heading gpu-smooth font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white max-w-4xl mx-auto leading-relaxed ${quoteVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0.3s' }}
+          >
             "Every woman deserves a space where she is{' '}
             <span className="gold-text">powerful</span>,{' '}
             <span style={{ color: '#800080' }}>supported</span>, and{' '}
             <span className="gold-text">unstoppable</span>."
           </blockquote>
-          <p className="text-white/40 text-sm mt-6 tracking-wider">— The Femme Flex Founding Team</p>
+          <p 
+            className={`reveal-text gpu-smooth text-white/40 text-sm mt-6 tracking-wider ${quoteVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0.5s' }}
+          >
+            — The Femme Flex Founding Team
+          </p>
         </div>
 
       </div>

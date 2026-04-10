@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Clock, MapPin, Users, ChevronRight, BookOpen, X, Check, ChevronLeft, ChevronRight as ChevronRightIcon } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useSectionReveal } from '../hooks/useParallaxReveal';
 
 const locations = ['All', 'Kadachanenthal', 'Othakkadai'];
 const classTypes = ['All', 'Yoga', 'Zumba', 'Aerobics', 'Personal Training', 'Strength Training'];
@@ -490,7 +491,9 @@ function MobileLocationsCarousel() {
 }
 
 export default function ClassSchedule() {
-  const { ref, isVisible } = useIntersectionObserver(0.1);
+  const { ref: headerRef, isVisible: headerVisible } = useIntersectionObserver(0.1);
+  const { ref: headingRef, isVisible: headingVisible } = useSectionReveal(0.1);
+  const { ref: subtitleRef, isVisible: subtitleVisible } = useSectionReveal(0.1);
   const [selectedLocation, setSelectedLocation] = useState('All');
   const [selectedType, setSelectedType] = useState('All');
   const [selectedDay, setSelectedDay] = useState('Monday');
@@ -531,18 +534,29 @@ export default function ClassSchedule() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div
-          ref={ref}
-          className={`text-center mb-12 section-fade ${isVisible ? 'visible' : ''}`}
-        >
-          <p className="text-xs font-semibold tracking-[0.4em] uppercase mb-4" style={{ color: '#800080' }}>
+        <div ref={headerRef} className="text-center mb-12">
+          <p 
+            ref={subtitleRef}
+            className={`reveal-subtitle gpu-smooth text-xs font-semibold tracking-[0.4em] uppercase mb-4 ${subtitleVisible ? 'is-visible' : ''}`}
+            style={{ color: '#800080', transitionDelay: '0.1s' }}
+          >
             All Classes Available Daily
           </p>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+          <h2 
+            ref={headingRef}
+            className={`reveal-heading gpu-smooth font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${headingVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0s' }}
+          >
             Weekly <span className="gold-text">Timetable</span>
           </h2>
-          <div className="gold-line w-24 mx-auto mb-8" />
-          <p className="text-white/60 text-lg max-w-2xl mx-auto">
+          <div 
+            className={`reveal-text gpu-smooth gold-line w-24 mx-auto mb-8 ${headingVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0.2s' }}
+          />
+          <p 
+            className={`reveal-text gpu-smooth text-white/60 text-lg max-w-2xl mx-auto ${headerVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0.3s' }}
+          >
             Find the perfect class for your fitness goals. Filter by location, class type, and day.
           </p>
         </div>

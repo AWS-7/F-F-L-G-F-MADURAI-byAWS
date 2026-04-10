@@ -1,4 +1,5 @@
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useSectionReveal } from '../hooks/useParallaxReveal';
 import { useEffect, useRef, useState } from 'react';
 import { X, ChevronLeft, ChevronRight, Instagram, Facebook } from 'lucide-react';
 
@@ -209,7 +210,10 @@ function VideoCard({ videoSrc, label, isMobile = false, onClick }: { videoSrc: s
 }
 
 export default function Gallery() {
-  const { ref, isVisible } = useIntersectionObserver(0.1);
+  const { ref: headerRef, isVisible: headerVisible } = useIntersectionObserver(0.1);
+  const { ref: headingRef, isVisible: headingVisible } = useSectionReveal(0.1);
+  const { ref: subtitleRef, isVisible: subtitleVisible } = useSectionReveal(0.1);
+  const { ref: galleryRef, isVisible: galleryVisible } = useSectionReveal(0.1);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -291,36 +295,49 @@ export default function Gallery() {
         <FollowUsSection />
 
         {/* Our Spaces Section */}
-        <div
-          ref={ref}
-          className={`text-center mb-16 section-fade ${isVisible ? 'visible' : ''}`}
-        >
+        <div ref={headerRef} className="text-center mb-16">
           <p
-            className="text-xs font-semibold tracking-[0.4em] uppercase mb-4"
-            style={{ color: '#800080' }}
+            ref={subtitleRef}
+            className={`reveal-subtitle gpu-smooth text-xs font-semibold tracking-[0.4em] uppercase mb-4 ${subtitleVisible ? 'is-visible' : ''}`}
+            style={{ color: '#800080', transitionDelay: '0.1s' }}
           >
             Inside The Sanctuary
           </p>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+          <h2 
+            ref={headingRef}
+            className={`reveal-heading gpu-smooth font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${headingVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0s' }}
+          >
             Our{' '}
             <span className="gold-text">Spaces</span>
           </h2>
-          <div className="gold-line w-24 mx-auto mb-8" />
-          <p className="text-white/60 text-lg max-w-2xl mx-auto">
+          <div 
+            className={`reveal-text gpu-smooth gold-line w-24 mx-auto mb-8 ${headingVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0.2s' }}
+          />
+          <p 
+            className={`reveal-text gpu-smooth text-white/60 text-lg max-w-2xl mx-auto ${headerVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0.3s' }}
+          >
             World-class facilities designed to inspire and elevate your every workout.
           </p>
         </div>
 
         {/* Desktop Grid Layout - Equal 3 columns */}
-        <div className="hidden md:grid grid-cols-3 gap-4">
+        <div ref={galleryRef} className="hidden md:grid grid-cols-3 gap-4">
           {galleryItems.map((item, index) => (
-            <GalleryCard
+            <div 
               key={index}
-              src={item.src}
-              alt={item.alt}
-              label={item.label}
-              onClick={() => openLightbox(index)}
-            />
+              className={`reveal-card gpu-smooth ${galleryVisible ? 'is-visible' : ''}`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
+              <GalleryCard
+                src={item.src}
+                alt={item.alt}
+                label={item.label}
+                onClick={() => openLightbox(index)}
+              />
+            </div>
           ))}
         </div>
 

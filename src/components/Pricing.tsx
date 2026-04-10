@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Check, Crown, Star, Leaf, Music2, Layers } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useSectionReveal } from '../hooks/useParallaxReveal';
 import confetti from 'canvas-confetti';
 
 type BranchId = 'kadachanenthal' | 'ottakadai';
@@ -115,7 +116,10 @@ const specialties: { name: string; price: string; duration: string; Icon: Lucide
 
 export default function Pricing() {
   const [branch, setBranch] = useState<BranchId>('kadachanenthal');
-  const { ref, isVisible } = useIntersectionObserver(0.05);
+  const { ref: headerRef, isVisible: headerVisible } = useIntersectionObserver(0.05);
+  const { ref: headingRef, isVisible: headingVisible } = useSectionReveal(0.1);
+  const { ref: subtitleRef, isVisible: subtitleVisible } = useSectionReveal(0.1);
+  const { ref: plansRef, isVisible: plansVisible } = useSectionReveal(0.1);
   const [confettiTriggered, setConfettiTriggered] = useState(false);
   
   const plansScrollRef = useRef<HTMLDivElement>(null);
@@ -125,7 +129,7 @@ export default function Pricing() {
 
   // Confetti effect - trigger once when section becomes visible
   useEffect(() => {
-    if (isVisible && !confettiTriggered) {
+    if (headerVisible && !confettiTriggered) {
       setConfettiTriggered(true);
       
       // Play burst sound at 50% volume using Web Audio API
@@ -181,7 +185,7 @@ export default function Pricing() {
 
       frame();
     }
-  }, [isVisible, confettiTriggered]);
+  }, [headerVisible, confettiTriggered]);
 
   // Auto-scroll effect for plans on mobile - optimized performance
   useEffect(() => {
@@ -280,22 +284,30 @@ export default function Pricing() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          ref={ref}
-          className={`text-center mb-12 section-fade ${isVisible ? 'visible' : ''}`}
-        >
+        <div ref={headerRef} className="text-center mb-12">
           <p
-            className="text-xs font-semibold tracking-[0.4em] uppercase mb-4"
-            style={{ color: '#800080' }}
+            ref={subtitleRef}
+            className={`reveal-subtitle gpu-smooth text-xs font-semibold tracking-[0.4em] uppercase mb-4 ${subtitleVisible ? 'is-visible' : ''}`}
+            style={{ color: '#800080', transitionDelay: '0.1s' }}
           >
             Membership Plans
           </p>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+          <h2 
+            ref={headingRef}
+            className={`reveal-heading gpu-smooth font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${headingVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0s' }}
+          >
             Invest in{' '}
             <span className="gold-text">Yourself</span>
           </h2>
-          <div className="gold-line w-24 mx-auto mb-8" />
-          <p className="text-white/60 text-lg max-w-2xl mx-auto mb-10">
+          <div 
+            className={`reveal-text gpu-smooth gold-line w-24 mx-auto mb-8 ${headingVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0.2s' }}
+          />
+          <p 
+            className={`reveal-text gpu-smooth text-white/60 text-lg max-w-2xl mx-auto mb-10 ${headerVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0.3s' }}
+          >
             Premium memberships for every journey. No hidden fees, pure value.
           </p>
 
@@ -333,12 +345,15 @@ export default function Pricing() {
         </div>
 
         {/* Desktop Plans Grid */}
-        <div className="hidden lg:grid grid-cols-3 gap-5 mb-16">
-          {currentBranch.plans.map((plan) => (
+        <div ref={plansRef} className="hidden lg:grid grid-cols-3 gap-5 mb-16">
+          {currentBranch.plans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`relative dark-card card-hover p-6 flex flex-col ${plan.highlight ? 'pricing-card-active' : ''}`}
-              style={{ borderRadius: '4px' }}
+              className={`reveal-card gpu-smooth relative dark-card card-hover p-6 flex flex-col ${plan.highlight ? 'pricing-card-active' : ''} ${plansVisible ? 'is-visible' : ''}`}
+              style={{ 
+                borderRadius: '4px',
+                transitionDelay: `${index * 0.1}s`
+              }}
             >
               {plan.tag && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
