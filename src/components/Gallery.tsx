@@ -502,7 +502,7 @@ function VideoSection() {
       {/* Social Media Buttons */}
       <div className="flex justify-center gap-4 mt-8">
         <a
-          href="https://instagram.com/femmeflex_madurai"
+          href="https://www.instagram.com/femme_flexmdu59?igsh=YmlodGZvMGdodHRx"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-6 py-3 text-sm font-semibold tracking-wider uppercase transition-all duration-300 hover:scale-105"
@@ -516,7 +516,7 @@ function VideoSection() {
           Follow on Instagram
         </a>
         <a
-          href="https://facebook.com/femmeflexmadurai"
+          href="https://www.facebook.com/share/18EeaQWTW1/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-6 py-3 text-sm font-semibold tracking-wider uppercase transition-all duration-300 hover:scale-105"

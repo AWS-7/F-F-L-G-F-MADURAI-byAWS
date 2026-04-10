@@ -29,7 +29,7 @@ const socialLinks = [
   { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/femme_flexmdu59?igsh=YmlodGZvMGdodHRx' },
   { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/share/18EeaQWTW1/' },
   { icon: Youtube, label: 'YouTube', href: '#' },
-  { icon: MessageCircle, label: 'WhatsApp', href: '#' },
+  { icon: MessageCircle, label: 'WhatsApp', href: 'https://wa.me/919080882873' },
 ];
 
 export default function Footer() {
