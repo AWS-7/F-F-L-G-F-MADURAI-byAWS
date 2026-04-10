@@ -1,5 +1,6 @@
 import { Shield, Heart, Star, Users } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useState, useEffect } from 'react';
 import femme4 from '../images/femme4.webp';
 
 const stats = [
@@ -33,6 +34,30 @@ const pillars = [
 
 export default function About() {
   const { ref, isVisible } = useIntersectionObserver(0.1);
+  const [visibleStats, setVisibleStats] = useState([false, false, false]);
+
+  // Typing/fading effect - show stats one by one
+  useEffect(() => {
+    if (isVisible) {
+      // Reset and start animation
+      setVisibleStats([false, false, false]);
+      
+      // Show first stat immediately
+      setTimeout(() => {
+        setVisibleStats([true, false, false]);
+      }, 100);
+      
+      // Show second stat after 800ms
+      setTimeout(() => {
+        setVisibleStats([true, true, false]);
+      }, 900);
+      
+      // Show third stat after 1600ms
+      setTimeout(() => {
+        setVisibleStats([true, true, true]);
+      }, 1700);
+    }
+  }, [isVisible]);
 
   return (
     <section id="about" className="relative py-24 md:py-32 overflow-hidden">
@@ -73,15 +98,23 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-3 gap-2 md:gap-8 mb-20 max-w-3xl mx-auto">
-            {stats.map((stat) => (
+            {stats.map((stat, index) => (
               <div key={stat.value} className="text-center px-1">
                 <div
-                  className="font-display text-sm sm:text-xl md:text-3xl lg:text-4xl font-black mb-1 md:mb-2 leading-tight"
+                  className={`font-display text-sm sm:text-xl md:text-3xl lg:text-4xl font-black mb-1 md:mb-2 leading-tight transition-all duration-700 ${
+                    visibleStats[index] 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-4'
+                  }`}
                   style={{ color: '#D4AF37' }}
                 >
                   {stat.value}
                 </div>
-                <div className="text-white/50 text-[10px] sm:text-xs md:text-sm tracking-wider uppercase">
+                <div className={`text-white/50 text-[10px] sm:text-xs md:text-sm tracking-wider uppercase transition-all duration-700 delay-200 ${
+                  visibleStats[index] 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-4'
+                }`}>
                   {stat.label}
                 </div>
               </div>
