@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import SmartLoader from './components/SmartLoader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -18,6 +21,13 @@ import ClassSchedule from './components/ClassSchedule';
 import Blog from './components/Blog';
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+    });
+  }, []);
   return (
     <>
       <SmartLoader />
