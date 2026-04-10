@@ -11,12 +11,12 @@ import madurai4 from '../images/madurai4.webp';
 import madurai5 from '../images/madurai5.jpeg';
 import madurai6 from '../images/madurai6.jpeg';
 
-// Videos in public folder - use relative URLs
+// Videos in public folder - use relative URLs for GitHub Pages
 const videos = [
-  { src: '/images/femme_v_2.mp4', label: 'Workout Session 1' },
-  { src: '/images/femme_v5.mp4', label: 'Training Highlights' },
-  { src: '/images/femme880.mp4', label: 'Fitness Journey' },
-  { src: '/images/feeme8880.mp4', label: 'Gym Atmosphere' },
+  { src: 'images/femme_v_2.mp4', label: 'Workout Session 1' },
+  { src: 'images/femme_v5.mp4', label: 'Training Highlights' },
+  { src: 'images/femme880.mp4', label: 'Fitness Journey' },
+  { src: 'images/feeme8880.mp4', label: 'Gym Atmosphere' },
 ];
 
 const galleryItems = [
