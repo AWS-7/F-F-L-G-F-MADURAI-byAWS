@@ -323,7 +323,7 @@ export default function Pricing() {
           </p>
 
           <div
-            className="inline-flex items-center p-1 mx-auto"
+            className="inline-flex items-center p-1 mx-auto relative z-10"
             style={{
               background: 'rgba(255,255,255,0.05)',
               border: '1px solid rgba(212,175,55,0.2)',
@@ -333,8 +333,9 @@ export default function Pricing() {
             {(['kadachanenthal', 'othakkadai'] as BranchId[]).map((id) => (
               <button
                 key={id}
+                type="button"
                 onClick={() => handleBranchChange(id)}
-                className="toggle-btn px-5 sm:px-8 py-3 text-xs sm:text-sm font-semibold tracking-[0.15em] uppercase"
+                className="px-5 sm:px-8 py-3 text-xs sm:text-sm font-semibold tracking-[0.15em] uppercase cursor-pointer hover:opacity-90 transition-all duration-200"
                 style={{
                   borderRadius: '2px',
                   background: branch === id
@@ -343,6 +344,9 @@ export default function Pricing() {
                   color: branch === id ? '#fff' : 'rgba(255,255,255,0.5)',
                   border: branch === id ? '1px solid rgba(212,175,55,0.4)' : '1px solid transparent',
                   boxShadow: branch === id ? '0 4px 20px rgba(128,0,128,0.3)' : 'none',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  zIndex: 20,
                 }}
               >
                 {id === 'kadachanenthal' ? 'Kadachanenthal' : 'Othakkadai'}
