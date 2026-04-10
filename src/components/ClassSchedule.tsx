@@ -316,6 +316,179 @@ function ClassCard({
   );
 }
 
+// Mobile Locations Carousel with Auto-scroll
+function MobileLocationsCarousel() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const locations = [
+    {
+      name: 'Femmeflex Ladies GYM Fitness Studio',
+      address: 'No 1/281-A, Alagar Kovil Main Road, Anthony Church Opposite, Kadhakinaru, Madurai - 625 104',
+      phone: '90808 82873',
+      hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
+      status: 'Open Now',
+      mapUrl: 'https://maps.google.com/?q=No+1/281-A+Alagar+Kovil+Main+Road+Anthony+Church+Opposite+Kadhakinaru+Madurai+625104',
+    },
+    {
+      name: 'Femmeflex Ladies GYM Fitness Studio',
+      address: 'Ayisha Complex, 1st Floor, Thirumogur Road, Y. Othakadai, Madurai - 625 107',
+      phone: '93442 49843',
+      hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
+      status: 'Open Now',
+      mapUrl: 'https://maps.google.com/?q=Ayisha+complex+1st+floor+thirumogur+road+Y.othakadai+Madurai+625107',
+    },
+  ];
+
+  // Auto-scroll every 4 seconds
+  useEffect(() => {
+    if (locations.length === 0 || isPaused) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => {
+        const next = (prev + 1) % locations.length;
+        scrollRef.current?.scrollTo({
+          left: next * 320,
+          behavior: 'smooth',
+        });
+        return next;
+      });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [locations.length, isPaused]);
+
+  const scrollToIndex = (index: number) => {
+    const newIndex = Math.max(0, Math.min(index, locations.length - 1));
+    setCurrentIndex(newIndex);
+    scrollRef.current?.scrollTo({
+      left: newIndex * 320,
+      behavior: 'smooth',
+    });
+  };
+
+  const handleManualScroll = () => {
+    if (scrollRef.current) {
+      const scrollLeft = scrollRef.current.scrollLeft;
+      const newIndex = Math.round(scrollLeft / 320);
+      setCurrentIndex(newIndex);
+    }
+  };
+
+  return (
+    <div className="relative">
+      {/* Carousel Container */}
+      <div
+        ref={scrollRef}
+        onScroll={handleManualScroll}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
+        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 pb-4"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {locations.map((loc, idx) => (
+          <div key={idx} className="flex-shrink-0 w-[300px] snap-center">
+            <div
+              className="p-5 rounded-lg transition-all duration-300 cursor-pointer group h-full"
+              style={{
+                background: 'linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(128,0,128,0.05) 100%)',
+                border: '1px solid rgba(212,175,55,0.3)',
+              }}
+              onClick={() => window.open(loc.mapUrl, '_blank')}
+            >
+              <div className="flex items-start gap-3">
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'rgba(212,175,55,0.2)' }}
+                >
+                  <MapPin size={20} style={{ color: '#D4AF37' }} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-semibold text-white text-sm mb-1">{loc.name}</h4>
+                  <p className="text-white/60 text-xs mb-2 leading-relaxed">{loc.address}</p>
+                  <div className="flex items-center gap-1 text-xs" style={{ color: '#D4AF37' }}>
+                    <span>📞 {loc.phone}</span>
+                  </div>
+                  <p className="text-white/40 text-xs mt-1">{loc.hours}</p>
+                  <p className="text-white/60 text-xs mt-1 flex items-center gap-1">
+                    <span style={{ color: '#00C853' }}>●</span> {loc.status}
+                  </p>
+                </div>
+              </div>
+              {/* Mini Map Placeholder */}
+              <div
+                className="mt-3 h-24 rounded-lg overflow-hidden relative"
+                style={{ background: 'rgba(0,0,0,0.3)' }}
+              >
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <MapPin size={24} style={{ color: '#D4AF37' }} className="mx-auto mb-1" />
+                    <p className="text-white/60 text-xs">Tap for Google Maps</p>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent" />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Navigation Arrows */}
+      {locations.length > 1 && (
+        <>
+          <button
+            onClick={() => scrollToIndex(currentIndex - 1)}
+            disabled={currentIndex === 0}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-8 h-8 rounded-full flex items-center justify-center transition-all"
+            style={{
+              background: 'rgba(0,0,0,0.7)',
+              border: '1px solid rgba(212,175,55,0.3)',
+              opacity: currentIndex === 0 ? 0.3 : 1,
+            }}
+          >
+            <ChevronLeft size={18} style={{ color: '#D4AF37' }} />
+          </button>
+          <button
+            onClick={() => scrollToIndex(currentIndex + 1)}
+            disabled={currentIndex === locations.length - 1}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-8 h-8 rounded-full flex items-center justify-center transition-all"
+            style={{
+              background: 'rgba(0,0,0,0.7)',
+              border: '1px solid rgba(212,175,55,0.3)',
+              opacity: currentIndex === locations.length - 1 ? 0.3 : 1,
+            }}
+          >
+            <ChevronRightIcon size={18} style={{ color: '#D4AF37' }} />
+          </button>
+        </>
+      )}
+
+      {/* Dots Indicator */}
+      {locations.length > 1 && (
+        <div className="flex justify-center gap-2 mt-2">
+          {locations.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => scrollToIndex(idx)}
+              className="w-2 h-2 rounded-full transition-all"
+              style={{
+                background: currentIndex === idx ? '#D4AF37' : 'rgba(212,175,55,0.3)',
+                transform: currentIndex === idx ? 'scale(1.2)' : 'scale(1)',
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Swipe hint */}
+      <p className="text-center text-white/30 text-xs mt-2">← Swipe to see other branch →</p>
+    </div>
+  );
+}
+
 export default function ClassSchedule() {
   const { ref, isVisible } = useIntersectionObserver(0.1);
   const [selectedLocation, setSelectedLocation] = useState('All');
@@ -473,7 +646,13 @@ export default function ClassSchedule() {
             <div className="gold-line w-16 mx-auto" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Mobile: Horizontal Scroll Carousel with Auto-scroll */}
+          <div className="md:hidden">
+            <MobileLocationsCarousel />
+          </div>
+
+          {/* Desktop: Grid Layout */}
+          <div className="hidden md:grid grid-cols-2 gap-6">
             {/* Kadachanenthal Branch */}
             <div 
               className="p-6 rounded-lg transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
