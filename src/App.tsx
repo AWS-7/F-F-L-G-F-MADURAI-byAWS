@@ -28,9 +28,9 @@ function App() {
         <BMICalculator />
         <Programs />
         <DietPlans />
+        <ClassSchedule />
         <Pricing />
         <Gallery />
-        <ClassSchedule />
         <CTABanner />
         <HealthBar />
         <Blog />
