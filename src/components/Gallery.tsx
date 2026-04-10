@@ -11,17 +11,12 @@ import madurai4 from '../images/madurai4.webp';
 import madurai5 from '../images/madurai5.jpeg';
 import madurai6 from '../images/madurai6.jpeg';
 
-// Import videos
-import video1 from '../images/femme_v_2.mp4';
-import video2 from '../images/femme_v5.mp4';
-import video3 from '../images/Femme880.mp4';
-import video4 from '../images/feeme8880.mp4';
-
+// Videos in public folder - use relative URLs
 const videos = [
-  { src: video1, label: 'Workout Session 1' },
-  { src: video2, label: 'Training Highlights' },
-  { src: video3, label: 'Fitness Journey' },
-  { src: video4, label: 'Gym Atmosphere' },
+  { src: '/images/femme_v_2.mp4', label: 'Workout Session 1' },
+  { src: '/images/femme_v5.mp4', label: 'Training Highlights' },
+  { src: '/images/femme880.mp4', label: 'Fitness Journey' },
+  { src: '/images/feeme8880.mp4', label: 'Gym Atmosphere' },
 ];
 
 const galleryItems = [
