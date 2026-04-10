@@ -116,6 +116,7 @@ const specialties: { name: string; price: string; duration: string; Icon: Lucide
 
 export default function Pricing() {
   const [branch, setBranch] = useState<BranchId>('kadachanenthal');
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const { ref: headerRef, isVisible: headerVisible } = useIntersectionObserver(0.05);
   const { ref: headingRef, isVisible: headingVisible } = useSectionReveal(0.1);
   const { ref: subtitleRef, isVisible: subtitleVisible } = useSectionReveal(0.1);
@@ -126,6 +127,16 @@ export default function Pricing() {
   const addonsScrollRef = useRef<HTMLDivElement>(null);
   const [plansPaused, setPlansPaused] = useState(false);
   const [addonsPaused, setAddonsPaused] = useState(false);
+
+  // Handle branch change with smooth transition
+  const handleBranchChange = (newBranch: BranchId) => {
+    if (newBranch === branch) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setBranch(newBranch);
+      setIsTransitioning(false);
+    }, 200);
+  };
 
   // Confetti effect - trigger once when section becomes visible
   useEffect(() => {
@@ -322,7 +333,7 @@ export default function Pricing() {
             {(['kadachanenthal', 'othakkadai'] as BranchId[]).map((id) => (
               <button
                 key={id}
-                onClick={() => setBranch(id)}
+                onClick={() => handleBranchChange(id)}
                 className="toggle-btn px-5 sm:px-8 py-3 text-xs sm:text-sm font-semibold tracking-[0.15em] uppercase"
                 style={{
                   borderRadius: '2px',
@@ -345,7 +356,10 @@ export default function Pricing() {
         </div>
 
         {/* Desktop Plans Grid */}
-        <div ref={plansRef} className="hidden lg:grid grid-cols-3 gap-5 mb-16">
+        <div 
+          ref={plansRef} 
+          className={`hidden lg:grid grid-cols-3 gap-5 mb-16 transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
+        >
           {currentBranch.plans.map((plan, index) => (
             <div
               key={plan.name}
@@ -431,7 +445,7 @@ export default function Pricing() {
         {/* Mobile/Tablet Plans Horizontal Scroll */}
         <div
           ref={plansScrollRef}
-          className="lg:hidden flex gap-5 overflow-x-auto scrollbar-hide pb-4 mb-16"
+          className={`lg:hidden flex gap-4 overflow-x-auto scrollbar-hide pb-4 px-4 transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
           style={{
             scrollSnapType: 'x mandatory',
             scrollbarWidth: 'none',
