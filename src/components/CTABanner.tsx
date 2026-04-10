@@ -110,10 +110,15 @@ export default function CTABanner() {
           </div>
 
           {/* Trust Indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-white/40 text-sm">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-white/40 text-sm">
             <div className="flex items-center gap-2">
               <Phone size={14} style={{ color: '#D4AF37' }} />
-              <span>+91 98765 43210</span>
+              <span>90808 82873</span>
+            </div>
+            <div className="hidden md:block w-px h-4 bg-white/20" />
+            <div className="flex items-center gap-2">
+              <Phone size={14} style={{ color: '#D4AF37' }} />
+              <span>93442 49843</span>
             </div>
             <div className="hidden md:block w-px h-4 bg-white/20" />
             <div className="flex items-center gap-2">
