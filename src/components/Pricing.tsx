@@ -5,7 +5,7 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { useSectionReveal } from '../hooks/useParallaxReveal';
 import confetti from 'canvas-confetti';
 
-type BranchId = 'kadachanenthal' | 'ottakadai';
+type BranchId = 'kadachanenthal' | 'othakkadai';
 
 interface Plan {
   name: string;
@@ -62,7 +62,7 @@ const branches: Record<BranchId, { plans: Plan[]; note?: string }> = {
     ],
     note: '+₹300 for optional branded jersey',
   },
-  ottakadai: {
+  othakkadai: {
     plans: [
       {
         name: 'Monthly',
@@ -319,7 +319,7 @@ export default function Pricing() {
               borderRadius: '4px',
             }}
           >
-            {(['kadachanenthal', 'ottakadai'] as BranchId[]).map((id) => (
+            {(['kadachanenthal', 'othakkadai'] as BranchId[]).map((id) => (
               <button
                 key={id}
                 onClick={() => setBranch(id)}
@@ -334,7 +334,7 @@ export default function Pricing() {
                   boxShadow: branch === id ? '0 4px 20px rgba(128,0,128,0.3)' : 'none',
                 }}
               >
-                {id === 'kadachanenthal' ? 'Kadachanenthal' : 'Ottakadai'}
+                {id === 'kadachanenthal' ? 'Kadachanenthal' : 'Othakkadai'}
               </button>
             ))}
           </div>
