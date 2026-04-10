@@ -494,7 +494,7 @@ export default function ClassSchedule() {
                 background: 'linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(128,0,128,0.05) 100%)',
                 border: '1px solid rgba(212,175,55,0.3)',
               }}
-              onClick={() => window.open('https://maps.google.com/?q=Kadachanenthal,Madurai', '_blank')}
+              onClick={() => window.open('https://maps.google.com/?q=No+1/281-A+Alagar+Kovil+Main+Road+Anthony+Church+Opposite+Kadhakinaru+Madurai+625104', '_blank')}
             >
               <div className="flex items-start gap-4">
                 <div 
@@ -504,8 +504,8 @@ export default function ClassSchedule() {
                   <MapPin size={24} style={{ color: '#D4AF37' }} />
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-semibold text-white mb-1">Kadachanenthal Branch</h4>
-                  <p className="text-white/60 text-sm mb-2">Kadachanenthal, Madurai, Tamil Nadu</p>
+                  <h4 className="font-semibold text-white mb-1">Femmeflex Ladies GYM Fitness Studio</h4>
+                  <p className="text-white/60 text-sm mb-2">No 1/281-A, Alagar Kovil Main Road,<br/>Anthony Church Opposite, Kadhakinaru,<br/>Madurai - 625 104</p>
                   <div className="flex items-center gap-2 text-sm" style={{ color: '#D4AF37' }}>
                     <span>📞 90808 82873</span>
                   </div>
@@ -537,7 +537,7 @@ export default function ClassSchedule() {
                 background: 'linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(128,0,128,0.05) 100%)',
                 border: '1px solid rgba(212,175,55,0.3)',
               }}
-              onClick={() => window.open('https://maps.google.com/?q=Othakkadai,Madurai', '_blank')}
+              onClick={() => window.open('https://maps.google.com/?q=Ayisha+complex+1st+floor+thirumogur+road+Y.othakadai+Madurai+625107', '_blank')}
             >
               <div className="flex items-start gap-4">
                 <div 
@@ -547,8 +547,8 @@ export default function ClassSchedule() {
                   <MapPin size={24} style={{ color: '#D4AF37' }} />
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-semibold text-white mb-1">Othakkadai Branch</h4>
-                  <p className="text-white/60 text-sm mb-2">Othakkadai, Madurai, Tamil Nadu</p>
+                  <h4 className="font-semibold text-white mb-1">Femmeflex Ladies GYM Fitness Studio</h4>
+                  <p className="text-white/60 text-sm mb-2">Ayisha Complex, 1st Floor,<br/>Thirumogur Road,<br/>Y. Othakadai,<br/>Madurai - 625 107</p>
                   <div className="flex items-center gap-2 text-sm" style={{ color: '#D4AF37' }}>
                     <span>📞 93442 49843</span>
                   </div>
