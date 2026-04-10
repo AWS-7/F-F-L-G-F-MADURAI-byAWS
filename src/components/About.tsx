@@ -76,7 +76,7 @@ export default function About() {
             {stats.map((stat) => (
               <div key={stat.value} className="text-center px-1">
                 <div
-                  className="font-display text-lg sm:text-2xl md:text-4xl lg:text-5xl font-black mb-1 md:mb-2 leading-tight"
+                  className="font-display text-sm sm:text-xl md:text-3xl lg:text-4xl font-black mb-1 md:mb-2 leading-tight"
                   style={{ color: '#D4AF37' }}
                 >
                   {stat.value}
