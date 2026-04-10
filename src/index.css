@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-charcoal text-white font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Performance optimizations for smooth scrolling */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  /* Hardware acceleration for animated elements */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .gold-gradient {
+    background: linear-gradient(135deg, #D4AF37 0%, #F2D060 50%, #D4AF37 100%);
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, #D4AF37 0%, #F2D060 50%, #B8961A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .purple-glow {
+    box-shadow: 0 0 30px rgba(128, 0, 128, 0.4);
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+  }
+
+  .section-fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+  }
+
+  .section-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+  }
+
+  .border-gold {
+    border-color: #D4AF37;
+  }
+
+  .text-gold {
+    color: #D4AF37;
+  }
+}
+
+.review-track {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 40s linear infinite;
+}
+
+.review-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.gold-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(17, 17, 17, 0.5) 0%,
+    rgba(17, 17, 17, 0.3) 40%,
+    rgba(17, 17, 17, 0.7) 80%,
+    rgba(17, 17, 17, 0.95) 100%
+  );
+}
+
+.purple-gradient-bg {
+  background: linear-gradient(135deg, #800080 0%, #5a005a 100%);
+}
+
+.dark-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.shimmer-bg {
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.1) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #D4AF37;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.pricing-card-active {
+  background: linear-gradient(135deg, rgba(128, 0, 128, 0.25) 0%, rgba(128, 0, 128, 0.1) 100%);
+  border-color: #800080;
+  box-shadow: 0 0 30px rgba(128, 0, 128, 0.25);
+}
+
+.toggle-btn {
+  transition: all 0.3s ease;
+}
+
+.program-card {
+  overflow: hidden;
+  position: relative;
+}
+
+.program-card .overlay {
+  background: linear-gradient(to top, rgba(17,17,17,0.95) 0%, rgba(17,17,17,0.4) 60%, transparent 100%);
+  transition: all 0.4s ease;
+}
+
+.program-card:hover .overlay {
+  background: linear-gradient(to top, rgba(128,0,128,0.85) 0%, rgba(17,17,17,0.4) 70%, transparent 100%);
+}
+
+.program-card img {
+  transition: transform 0.6s ease;
+}
+
+.program-card:hover img {
+  transform: scale(1.08);
+}
+
+@media (max-width: 768px) {
+  .review-track {
+    animation-duration: 25s;
+  }
+}
+
+/* Hide scrollbar utility for horizontal scroll sections */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
