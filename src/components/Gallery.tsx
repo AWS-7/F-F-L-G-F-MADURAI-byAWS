@@ -1,6 +1,6 @@
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { useEffect, useRef, useState } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Instagram, Facebook } from 'lucide-react';
 
 // Import local images
 import femme2 from '../images/femme2.webp';
@@ -273,6 +273,10 @@ export default function Gallery() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Follow Us Section */}
+        <FollowUsSection />
+
+        {/* Our Spaces Section */}
         <div
           ref={ref}
           className={`text-center mb-16 section-fade ${isVisible ? 'visible' : ''}`}
@@ -534,6 +538,81 @@ function VideoSection() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+// Follow Us Section Component
+function FollowUsSection() {
+  return (
+    <div className="py-16 md:py-20 relative overflow-hidden">
+      {/* Background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(180deg, rgba(17,17,17,0) 0%, rgba(212,175,55,0.05) 50%, rgba(17,17,17,0) 100%)',
+        }}
+      />
+      
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Title */}
+        <div className="text-center mb-10">
+          <h2
+            className="font-display font-bold text-4xl sm:text-5xl md:text-6xl tracking-wide"
+            style={{
+              color: '#D4AF37',
+              textShadow: '0 0 40px rgba(212,175,55,0.3)',
+            }}
+          >
+            Follow Us
+          </h2>
+          <div className="gold-line w-20 mx-auto mt-4" />
+        </div>
+
+        {/* Social Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          {/* Instagram Button */}
+          <a
+            href="https://www.instagram.com/femme_flexmdu59?igsh=YmlodGZvMGdodHRx"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-3 px-8 py-4 text-base font-semibold tracking-wider uppercase transition-all duration-300 hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.05) 100%)',
+              border: '2px solid #D4AF37',
+              color: '#D4AF37',
+              borderRadius: '8px',
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            <Instagram size={22} />
+            <span>Follow on Instagram</span>
+          </a>
+
+          {/* Facebook Button */}
+          <a
+            href="https://www.facebook.com/share/18EeaQWTW1/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-3 px-8 py-4 text-base font-semibold tracking-wider uppercase transition-all duration-300 hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.05) 100%)',
+              border: '2px solid #D4AF37',
+              color: '#D4AF37',
+              borderRadius: '8px',
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            <Facebook size={22} />
+            <span>Follow on Facebook</span>
+          </a>
+        </div>
+
+        {/* Subtitle */}
+        <p className="text-center text-white/40 text-sm mt-8 tracking-wider">
+          Watch our latest workout videos and success stories
+        </p>
+      </div>
     </div>
   );
 }
