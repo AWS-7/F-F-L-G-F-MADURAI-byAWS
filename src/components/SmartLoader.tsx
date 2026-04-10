@@ -9,20 +9,41 @@ export default function SmartLoader() {
 
   useEffect(() => {
     // Detect network speed - works on Chrome/Android, fallback for iOS/Safari
-    const connection = (navigator as Navigator & { connection?: { effectiveType?: string } }).connection;
-    const effectiveType = connection?.effectiveType;
+    const connection = (navigator as Navigator & { 
+      connection?: { 
+        effectiveType?: string;
+        type?: string;
+      } 
+    }).connection;
     
-    // Map network type with fallback
+    // Try different properties for network detection
+    let detectedType = connection?.effectiveType || connection?.type;
+    
+    // If no network API available, detect based on device
+    if (!detectedType) {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      // Default to 4G for modern mobile devices
+      detectedType = isMobile ? '4g' : '4g';
+    }
+    
+    // Normalize to lowercase for mapping
+    detectedType = detectedType.toLowerCase();
+    
+    // Map network type
     const networkMap: Record<string, string> = {
       'slow-2g': '2G',
       '2g': '2G',
       '3g': '3G',
       '4g': '4G',
+      '5g': '5G',
+      'wifi': 'WiFi',
+      'ethernet': 'LAN',
+      'cellular': '4G',
     };
     
-    // Use detected type or fallback to 4G (mobile-friendly default)
-    const detectedType = effectiveType || '4g';
-    setNetworkType(networkMap[detectedType] || '4G');
+    // Get display type (default to 4G if unknown)
+    const displayType = networkMap[detectedType] || '4G';
+    setNetworkType(displayType);
     
     // Set signal strength based on network
     const strengthMap: Record<string, number> = {
@@ -30,12 +51,14 @@ export default function SmartLoader() {
       '2g': 2,
       '3g': 3,
       '4g': 4,
+      '5g': 4,
+      'wifi': 4,
     };
     setSignalStrength(strengthMap[detectedType] || 4);
 
     // Always show loader on mobile for better UX
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const isSlowNetwork = detectedType === '2g' || detectedType === 'slow-2g';
+    const isSlowNetwork = detectedType === '2g' || detectedType === 'slow-2g' || detectedType === '3g';
 
     if (isMobile || isSlowNetwork || document.readyState !== 'complete') {
       setShow(true);
@@ -45,14 +68,14 @@ export default function SmartLoader() {
       setTimeout(() => {
         setFadeOut(true);
         setTimeout(() => setShow(false), 700);
-      }, isMobile ? 2500 : 1500); // Longer on mobile
+      }, isMobile ? 2500 : 1500);
     };
 
     if (document.readyState === 'complete') {
       setTimeout(() => {
         setFadeOut(true);
         setTimeout(() => setShow(false), 700);
-      }, isMobile ? 3000 : 2000); // Longer on mobile
+      }, isMobile ? 3000 : 2000);
     } else {
       window.addEventListener('load', handleLoad);
     }
