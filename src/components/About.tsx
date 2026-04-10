@@ -9,6 +9,48 @@ const stats = [
   { value: 'Active Many Members', label: '' },
 ];
 
+// Cycling Text Component
+function CyclingText() {
+  const phrases = ['Expert Trainers', 'Elite Branches', 'Active Many Members'];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Fade out
+      setIsVisible(false);
+      
+      // Change text and fade in after transition
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % phrases.length);
+        setIsVisible(true);
+      }, 500); // Wait for fade out
+    }, 2500); // Total time per phrase (2s visible + 0.5s transition)
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="py-12 md:py-16 flex items-center justify-center">
+      <div className="text-center">
+        <h3
+          className={`font-display font-bold transition-all duration-500 ${
+            isVisible ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{
+            color: '#D4AF37',
+            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            textShadow: '0 0 30px rgba(212,175,55,0.3)',
+            minHeight: '1.2em',
+          }}
+        >
+          {phrases[currentIndex]}
+        </h3>
+      </div>
+    </div>
+  );
+}
+
 const pillars = [
   {
     icon: Shield,
@@ -97,6 +139,10 @@ export default function About() {
             </p>
           </div>
 
+          {/* Cycling Hero Text */}
+          <CyclingText />
+
+          {/* Stats Grid */}
           <div className="grid grid-cols-3 gap-2 md:gap-8 mb-20 max-w-3xl mx-auto">
             {stats.map((stat, index) => (
               <div key={stat.value} className="text-center px-1">
