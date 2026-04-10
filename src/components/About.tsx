@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import femme4 from '../images/femme4.webp';
 
 const stats = [
-  { value: 'Expert Trainers', label: '' },
-  { value: 'Elite Branches', label: '' },
-  { value: 'Active Many Members', label: '' },
+  { value: '', label: '' },
+  { value: '', label: '' },
+  { value: '', label: '' },
 ];
 
 // Cycling Text Component
