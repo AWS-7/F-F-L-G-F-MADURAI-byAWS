@@ -3,7 +3,7 @@ import { Clock, MapPin, Users, ChevronRight, BookOpen, X, Check, ChevronLeft, Ch
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const locations = ['All', 'Kadachanenthal', 'Othakkadai'];
-const classTypes = ['All', 'HIIT'];
+const classTypes = ['All', 'Yoga', 'Zumba', 'Aerobics', 'Personal Training', 'Strength Training'];
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 interface ClassSession {
@@ -27,7 +27,12 @@ const generateFullSchedule = (): ClassSession[] => {
   const allDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   
   const classTemplates = [
-    { name: 'HIIT Training', type: 'HIIT', time: '6:30 PM', duration: '45 min', instructor: 'J. Madhubala', capacity: 10 },
+    { name: 'Yoga', type: 'Yoga', time: '6:00 AM', duration: '1 hour', instructor: 'P. Niraimathi', capacity: 15 },
+    { name: 'Zumba Fitness', type: 'Zumba', time: '10:00 AM', duration: '45 min', instructor: 'M. Ashwitha', capacity: 20 },
+    { name: 'Aerobics', type: 'Aerobics', time: '8:00 AM', duration: '1 hour', instructor: 'Hema', capacity: 25 },
+    { name: 'Cardio Blast', type: 'Aerobics', time: '11:00 AM', duration: '45 min', instructor: 'M. Ashwitha', capacity: 20 },
+    { name: 'Core Strength', type: 'Strength Training', time: '12:00 PM', duration: '45 min', instructor: 'J. Madhubala', capacity: 10 },
+    { name: 'Personal Training', type: 'Personal Training', time: '10:00 AM', duration: '1 hour', instructor: 'J. Madhubala', capacity: 5 },
   ];
   
   allDays.forEach((day) => {
@@ -54,7 +59,11 @@ const generateFullSchedule = (): ClassSession[] => {
 const classSchedule: ClassSession[] = generateFullSchedule();
 
 const typeColors: Record<string, string> = {
-  'HIIT': '#D4AF37',
+  'Yoga': '#800080',
+  'Zumba': '#D4AF37',
+  'Aerobics': '#FF6B6B',
+  'Strength Training': '#4ECDC4',
+  'Personal Training': '#95E1D3',
 };
 
 // Mobile Carousel Component
@@ -450,6 +459,107 @@ export default function ClassSchedule() {
               <span className="text-white/60 text-sm">{type}</span>
             </div>
           ))}
+        </div>
+
+        {/* Branch Locations Map Section */}
+        <div className="mt-16 pt-12 border-t border-white/10">
+          <div className="text-center mb-8">
+            <p className="text-xs font-semibold tracking-[0.4em] uppercase mb-2" style={{ color: '#800080' }}>
+              Our Locations
+            </p>
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-4">
+              Branch <span className="gold-text">Locations</span>
+            </h3>
+            <div className="gold-line w-16 mx-auto" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Kadachanenthal Branch */}
+            <div 
+              className="p-6 rounded-lg transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
+              style={{
+                background: 'linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(128,0,128,0.05) 100%)',
+                border: '1px solid rgba(212,175,55,0.3)',
+              }}
+              onClick={() => window.open('https://maps.google.com/?q=No+1/281-A+Alagar+Kovil+Main+Road+Anthony+Church+Opposite+Kadhakinaru+Madurai+625104', '_blank')}
+            >
+              <div className="flex items-start gap-4">
+                <div 
+                  className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+                  style={{ background: 'rgba(212,175,55,0.2)' }}
+                >
+                  <MapPin size={24} style={{ color: '#D4AF37' }} />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-white mb-1">Femmeflex Ladies GYM Fitness Studio</h4>
+                  <p className="text-white/60 text-sm mb-2">No 1/281-A, Alagar Kovil Main Road,<br/>Anthony Church Opposite, Kadhakinaru,<br/>Madurai - 625 104</p>
+                  <div className="flex items-center gap-2 text-sm" style={{ color: '#D4AF37' }}>
+                    <span>📞 90808 82873</span>
+                  </div>
+                  <p className="text-white/40 text-xs mt-2">Mon–Sat: 5:30 AM – 9:00 PM</p>
+                  <p className="text-white/60 text-xs mt-2 flex items-center gap-1">
+                    <span style={{ color: '#00C853' }}>●</span> Open Now
+                  </p>
+                </div>
+              </div>
+              {/* Mini Map Placeholder */}
+              <div 
+                className="mt-4 h-32 rounded-lg overflow-hidden relative"
+                style={{ background: 'rgba(0,0,0,0.3)' }}
+              >
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <MapPin size={32} style={{ color: '#D4AF37' }} className="mx-auto mb-2" />
+                    <p className="text-white/60 text-xs">Click to view on Google Maps</p>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent" />
+              </div>
+            </div>
+
+            {/* Othakkadai Branch */}
+            <div 
+              className="p-6 rounded-lg transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
+              style={{
+                background: 'linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(128,0,128,0.05) 100%)',
+                border: '1px solid rgba(212,175,55,0.3)',
+              }}
+              onClick={() => window.open('https://maps.google.com/?q=Ayisha+complex+1st+floor+thirumogur+road+Y.othakadai+Madurai+625107', '_blank')}
+            >
+              <div className="flex items-start gap-4">
+                <div 
+                  className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+                  style={{ background: 'rgba(212,175,55,0.2)' }}
+                >
+                  <MapPin size={24} style={{ color: '#D4AF37' }} />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-white mb-1">Femmeflex Ladies GYM Fitness Studio</h4>
+                  <p className="text-white/60 text-sm mb-2">Ayisha Complex, 1st Floor,<br/>Thirumogur Road,<br/>Y. Othakadai,<br/>Madurai - 625 107</p>
+                  <div className="flex items-center gap-2 text-sm" style={{ color: '#D4AF37' }}>
+                    <span>📞 93442 49843</span>
+                  </div>
+                  <p className="text-white/40 text-xs mt-2">Mon–Sat: 5:30 AM – 9:00 PM</p>
+                  <p className="text-white/60 text-xs mt-2 flex items-center gap-1">
+                    <span style={{ color: '#00C853' }}>●</span> Open Now
+                  </p>
+                </div>
+              </div>
+              {/* Mini Map Placeholder */}
+              <div 
+                className="mt-4 h-32 rounded-lg overflow-hidden relative"
+                style={{ background: 'rgba(0,0,0,0.3)' }}
+              >
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <MapPin size={32} style={{ color: '#D4AF37' }} className="mx-auto mb-2" />
+                    <p className="text-white/60 text-xs">Click to view on Google Maps</p>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
