@@ -108,9 +108,9 @@ const branches: Record<BranchId, { plans: Plan[]; note?: string }> = {
 };
 
 const specialties: { name: string; price: string; duration: string; Icon: LucideIcon; desc: string }[] = [
-  { name: 'Yoga', price: '₹2,500', duration: 'Monthly', Icon: Leaf, desc: 'Mind & body harmony' },
+  { name: 'Yoga', price: '₹3,000', duration: 'Monthly', Icon: Leaf, desc: 'Mind & body harmony' },
   { name: 'Zumba', price: '₹3,000', duration: 'Monthly', Icon: Music2, desc: 'Dance your way fit' },
-  { name: 'Combo', price: '₹6,000', duration: 'Monthly', Icon: Layers, desc: 'Yoga + Zumba package' },
+  { name: 'Combo', price: '₹5,000', duration: 'Monthly', Icon: Layers, desc: 'Yoga + Zumba package' },
 ];
 
 export default function Pricing() {
