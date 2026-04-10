@@ -8,18 +8,21 @@ export default function SmartLoader() {
   const [signalStrength, setSignalStrength] = useState(4);
 
   useEffect(() => {
-    // Detect network speed
+    // Detect network speed - works on Chrome/Android, fallback for iOS/Safari
     const connection = (navigator as Navigator & { connection?: { effectiveType?: string } }).connection;
-    const effectiveType = connection?.effectiveType || '4g';
+    const effectiveType = connection?.effectiveType;
     
-    // Map network type
+    // Map network type with fallback
     const networkMap: Record<string, string> = {
       'slow-2g': '2G',
       '2g': '2G',
       '3g': '3G',
       '4g': '4G',
     };
-    setNetworkType(networkMap[effectiveType] || '4G');
+    
+    // Use detected type or fallback to 4G (mobile-friendly default)
+    const detectedType = effectiveType || '4g';
+    setNetworkType(networkMap[detectedType] || '4G');
     
     // Set signal strength based on network
     const strengthMap: Record<string, number> = {
@@ -28,11 +31,13 @@ export default function SmartLoader() {
       '3g': 3,
       '4g': 4,
     };
-    setSignalStrength(strengthMap[effectiveType] || 4);
+    setSignalStrength(strengthMap[detectedType] || 4);
 
-    const isSlowNetwork = effectiveType === '2g' || effectiveType === 'slow-2g';
+    // Always show loader on mobile for better UX
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const isSlowNetwork = detectedType === '2g' || detectedType === 'slow-2g';
 
-    if (isSlowNetwork || document.readyState !== 'complete') {
+    if (isMobile || isSlowNetwork || document.readyState !== 'complete') {
       setShow(true);
     }
 
@@ -40,14 +45,14 @@ export default function SmartLoader() {
       setTimeout(() => {
         setFadeOut(true);
         setTimeout(() => setShow(false), 700);
-      }, 1500);
+      }, isMobile ? 2500 : 1500); // Longer on mobile
     };
 
     if (document.readyState === 'complete') {
       setTimeout(() => {
         setFadeOut(true);
         setTimeout(() => setShow(false), 700);
-      }, 2000);
+      }, isMobile ? 3000 : 2000); // Longer on mobile
     } else {
       window.addEventListener('load', handleLoad);
     }
