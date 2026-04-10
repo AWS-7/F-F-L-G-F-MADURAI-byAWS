@@ -72,16 +72,16 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 md:gap-8 mb-20 max-w-2xl mx-auto">
+          <div className="grid grid-cols-3 gap-2 md:gap-8 mb-20 max-w-3xl mx-auto">
             {stats.map((stat) => (
-              <div key={stat.value} className="text-center">
+              <div key={stat.value} className="text-center px-1">
                 <div
-                  className="font-display text-4xl sm:text-5xl md:text-6xl font-black mb-2"
+                  className="font-display text-lg sm:text-2xl md:text-4xl lg:text-5xl font-black mb-1 md:mb-2 leading-tight"
                   style={{ color: '#D4AF37' }}
                 >
                   {stat.value}
                 </div>
-                <div className="text-white/50 text-xs sm:text-sm tracking-wider uppercase">
+                <div className="text-white/50 text-[10px] sm:text-xs md:text-sm tracking-wider uppercase">
                   {stat.label}
                 </div>
               </div>
