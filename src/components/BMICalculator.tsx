@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-import { Calculator, ArrowRight, Info, CheckCircle, Save } from 'lucide-react';
-import { createBMIRecord } from '../services/api';
+import { Calculator, ArrowRight, Info, CheckCircle } from 'lucide-react';
 
 export default function BMICalculator() {
   const { ref, isVisible } = useIntersectionObserver(0.1);
@@ -11,8 +10,6 @@ export default function BMICalculator() {
   const [bmi, setBmi] = useState<number | null>(null);
   const [category, setCategory] = useState('');
   const [showResult, setShowResult] = useState(false);
-  const [isSaving, setIsSaving] = useState(false);
-  const [saveStatus, setSaveStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const calculateBMI = () => {
     const h = parseFloat(height) / 100; // convert cm to meters
@@ -57,30 +54,6 @@ export default function BMICalculator() {
     setBmi(null);
     setCategory('');
     setShowResult(false);
-    setSaveStatus('idle');
-  };
-
-  const saveBMIRecord = async () => {
-    if (!clientName || !bmi) return;
-
-    setIsSaving(true);
-    setSaveStatus('idle');
-
-    try {
-      await createBMIRecord({
-        client_name: clientName,
-        height_cm: parseFloat(height),
-        weight_kg: parseFloat(weight),
-        bmi_value: bmi,
-        category: category,
-      });
-      setSaveStatus('success');
-    } catch (error) {
-      console.error('Failed to save BMI record:', error);
-      setSaveStatus('error');
-    } finally {
-      setIsSaving(false);
-    }
   };
 
   return (
@@ -208,17 +181,6 @@ export default function BMICalculator() {
                   </button>
                 </div>
 
-                {/* Save Status */}
-                {saveStatus === 'success' && (
-                  <div className="p-3 rounded text-center" style={{ background: 'rgba(0,200,83,0.15)', border: '1px solid rgba(0,200,83,0.3)' }}>
-                    <span style={{ color: '#00C853', fontSize: '14px' }}>✓ BMI record saved to database</span>
-                  </div>
-                )}
-                {saveStatus === 'error' && (
-                  <div className="p-3 rounded text-center" style={{ background: 'rgba(255,23,68,0.15)', border: '1px solid rgba(255,23,68,0.3)' }}>
-                    <span style={{ color: '#FF1744', fontSize: '14px' }}>✗ Failed to save to database</span>
-                  </div>
-                )}
               </div>
 
               {/* Result Section */}
@@ -258,25 +220,6 @@ export default function BMICalculator() {
                         <span>Healthy BMI range: 18.5 - 24.9</span>
                       </div>
                     </div>
-
-                    {/* Save to Database Button */}
-                    {clientName && saveStatus !== 'success' && (
-                      <div className="mt-4">
-                        <button
-                          onClick={saveBMIRecord}
-                          disabled={isSaving}
-                          className="w-full py-3 text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50"
-                          style={{
-                            background: 'linear-gradient(135deg, #D4AF37, #F2D060)',
-                            color: '#111',
-                            borderRadius: '4px',
-                          }}
-                        >
-                          <Save size={14} />
-                          {isSaving ? 'Saving...' : 'Save to Database'}
-                        </button>
-                      </div>
-                    )}
 
                     {bmi >= 18.5 && bmi < 25 ? (
                       <div className="mt-4 p-3 rounded text-center" style={{ background: 'rgba(0,200,83,0.15)' }}>
