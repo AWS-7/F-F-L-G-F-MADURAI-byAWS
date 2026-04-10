@@ -1,5 +1,6 @@
 import { ChevronDown } from 'lucide-react';
 import heroImage from '../images/aiiii.jpg';
+import GoldParticles from './GoldParticles';
 
 export default function Hero() {
   const scrollToAbout = () => {
@@ -11,6 +12,8 @@ export default function Hero() {
       id="hero"
       className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
+      {/* Background layers - particles at very back */}
+      <GoldParticles />
       <div className="absolute inset-0">
         <img
           src={heroImage}
