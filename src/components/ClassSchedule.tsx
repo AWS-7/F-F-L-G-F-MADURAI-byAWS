@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Clock, MapPin, Users, ChevronRight, BookOpen, X, Check, ChevronLeft, ChevronRight as ChevronRightIcon } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
-const locations = ['All', 'Kadachanenthal', 'Ottakadai'];
+const locations = ['All', 'Kadachanenthal', 'Othakkadai'];
 const classTypes = ['All', 'Yoga', 'Zumba', 'Aerobics', 'Personal Training', 'Strength Training'];
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
@@ -18,41 +18,58 @@ interface ClassSession {
   day: string;
 }
 
-const classSchedule: ClassSession[] = [
-  { id: 1, name: 'Morning Yoga', type: 'Yoga', time: '6:00 AM', duration: '1 hour', location: 'Kadachanenthal', instructor: 'P. Niraimathi', capacity: 15, day: 'Monday' },
-  { id: 2, name: 'Zumba Blast', type: 'Zumba', time: '9:00 AM', duration: '45 min', location: 'Kadachanenthal', instructor: 'M. Uthayalakshmi', capacity: 20, day: 'Monday' },
-  { id: 3, name: 'Strength Training', type: 'Strength Training', time: '6:00 PM', duration: '1 hour', location: 'Kadachanenthal', instructor: 'J. Madhubala', capacity: 10, day: 'Monday' },
-  { id: 4, name: 'Evening Yoga', type: 'Yoga', time: '7:30 PM', duration: '1 hour', location: 'Kadachanenthal', instructor: 'P. Niraimathi', capacity: 15, day: 'Monday' },
-  { id: 5, name: 'Morning Zumba', type: 'Zumba', time: '7:00 AM', duration: '45 min', location: 'Ottakadai', instructor: 'M. Ashwitha', capacity: 20, day: 'Monday' },
-  { id: 6, name: 'Aerobics', type: 'Aerobics', time: '5:30 PM', duration: '1 hour', location: 'Ottakadai', instructor: 'Hema', capacity: 25, day: 'Monday' },
-  { id: 7, name: 'Power Yoga', type: 'Yoga', time: '6:30 AM', duration: '1 hour', location: 'Kadachanenthal', instructor: 'P. Niraimathi', capacity: 15, day: 'Tuesday' },
-  { id: 8, name: 'Aerobics', type: 'Aerobics', time: '5:00 PM', duration: '1 hour', location: 'Kadachanenthal', instructor: 'Hema', capacity: 25, day: 'Tuesday' },
-  { id: 9, name: 'Zumba Fitness', type: 'Zumba', time: '7:00 PM', duration: '45 min', location: 'Kadachanenthal', instructor: 'M. Uthayalakshmi', capacity: 20, day: 'Tuesday' },
-  { id: 10, name: 'Morning Yoga', type: 'Yoga', time: '6:00 AM', duration: '1 hour', location: 'Ottakadai', instructor: 'Hema', capacity: 15, day: 'Tuesday' },
-  { id: 11, name: 'Personal Training', type: 'Personal Training', time: '6:00 PM', duration: '1 hour', location: 'Ottakadai', instructor: 'J. Madhubala', capacity: 5, day: 'Tuesday' },
-  { id: 12, name: 'Sunrise Yoga', type: 'Yoga', time: '5:45 AM', duration: '1 hour', location: 'Kadachanenthal', instructor: 'P. Niraimathi', capacity: 15, day: 'Wednesday' },
-  { id: 13, name: 'Zumba Morning', type: 'Zumba', time: '9:00 AM', duration: '45 min', location: 'Kadachanenthal', instructor: 'M. Uthayalakshmi', capacity: 20, day: 'Wednesday' },
-  { id: 14, name: 'Strength & Tone', type: 'Strength Training', time: '6:30 PM', duration: '1 hour', location: 'Kadachanenthal', instructor: 'J. Madhubala', capacity: 12, day: 'Wednesday' },
-  { id: 15, name: 'Zumba Evening', type: 'Zumba', time: '7:30 AM', duration: '45 min', location: 'Ottakadai', instructor: 'M. Ashwitha', capacity: 20, day: 'Wednesday' },
-  { id: 16, name: 'Aerobics', type: 'Aerobics', time: '6:00 PM', duration: '1 hour', location: 'Ottakadai', instructor: 'Hema', capacity: 25, day: 'Wednesday' },
-  { id: 17, name: 'Gentle Yoga', type: 'Yoga', time: '6:00 AM', duration: '1 hour', location: 'Kadachanenthal', instructor: 'P. Niraimathi', capacity: 15, day: 'Thursday' },
-  { id: 18, name: 'HIIT Training', type: 'Strength Training', time: '5:30 PM', duration: '45 min', location: 'Kadachanenthal', instructor: 'J. Madhubala', capacity: 10, day: 'Thursday' },
-  { id: 19, name: 'Zumba Night', type: 'Zumba', time: '7:00 PM', duration: '45 min', location: 'Kadachanenthal', instructor: 'M. Uthayalakshmi', capacity: 20, day: 'Thursday' },
-  { id: 20, name: 'Power Yoga', type: 'Yoga', time: '6:30 AM', duration: '1 hour', location: 'Ottakadai', instructor: 'Hema', capacity: 15, day: 'Thursday' },
-  { id: 21, name: 'Personal Training', type: 'Personal Training', time: '7:00 PM', duration: '1 hour', location: 'Ottakadai', instructor: 'J. Madhubala', capacity: 5, day: 'Thursday' },
-  { id: 22, name: 'Morning Flow', type: 'Yoga', time: '6:00 AM', duration: '1 hour', location: 'Kadachanenthal', instructor: 'P. Niraimathi', capacity: 15, day: 'Friday' },
-  { id: 23, name: 'Zumba Fusion', type: 'Zumba', time: '9:00 AM', duration: '45 min', location: 'Kadachanenthal', instructor: 'M. Uthayalakshmi', capacity: 20, day: 'Friday' },
-  { id: 24, name: 'Core Strength', type: 'Strength Training', time: '6:00 PM', duration: '1 hour', location: 'Kadachanenthal', instructor: 'J. Madhubala', capacity: 12, day: 'Friday' },
-  { id: 25, name: 'Aerobics', type: 'Aerobics', time: '7:30 AM', duration: '1 hour', location: 'Ottakadai', instructor: 'M. Ashwitha', capacity: 25, day: 'Friday' },
-  { id: 26, name: 'Evening Yoga', type: 'Yoga', time: '6:00 PM', duration: '1 hour', location: 'Ottakadai', instructor: 'Hema', capacity: 15, day: 'Friday' },
-  { id: 27, name: 'Weekend Warrior', type: 'Strength Training', time: '7:00 AM', duration: '1.5 hours', location: 'Kadachanenthal', instructor: 'J. Madhubala', capacity: 15, day: 'Saturday' },
-  { id: 28, name: 'Zumba Party', type: 'Zumba', time: '10:00 AM', duration: '1 hour', location: 'Kadachanenthal', instructor: 'M. Uthayalakshmi', capacity: 30, day: 'Saturday' },
-  { id: 29, name: 'Yoga & Meditation', type: 'Yoga', time: '5:00 PM', duration: '1.5 hours', location: 'Kadachanenthal', instructor: 'P. Niraimathi', capacity: 20, day: 'Saturday' },
-  { id: 30, name: 'Morning Zumba', type: 'Zumba', time: '8:00 AM', duration: '1 hour', location: 'Ottakadai', instructor: 'M. Ashwitha', capacity: 25, day: 'Saturday' },
-  { id: 31, name: 'Group Training', type: 'Personal Training', time: '10:00 AM', duration: '1 hour', location: 'Ottakadai', instructor: 'J. Madhubala', capacity: 8, day: 'Saturday' },
-  { id: 32, name: 'Sunday Yoga', type: 'Yoga', time: '7:00 AM', duration: '1 hour', location: 'Kadachanenthal', instructor: 'P. Niraimathi', capacity: 20, day: 'Sunday' },
-  { id: 33, name: 'Relaxation Yoga', type: 'Yoga', time: '6:00 PM', duration: '1 hour', location: 'Ottakadai', instructor: 'Hema', capacity: 20, day: 'Sunday' },
-];
+// Generate comprehensive schedule - all classes available at both branches all days
+const generateFullSchedule = (): ClassSession[] => {
+  const schedule: ClassSession[] = [];
+  let id = 1;
+  
+  const branches = ['Kadachanenthal', 'Othakkadai'];
+  const allDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  
+  const classTemplates = [
+    { name: 'Morning Yoga', type: 'Yoga', time: '6:00 AM', duration: '1 hour', instructor: 'P. Niraimathi', capacity: 15 },
+    { name: 'Sunrise Yoga', type: 'Yoga', time: '5:45 AM', duration: '1 hour', instructor: 'Hema', capacity: 15 },
+    { name: 'Power Yoga', type: 'Yoga', time: '6:30 AM', duration: '1 hour', instructor: 'P. Niraimathi', capacity: 15 },
+    { name: 'Gentle Yoga', type: 'Yoga', time: '7:00 AM', duration: '1 hour', instructor: 'Hema', capacity: 15 },
+    { name: 'Evening Yoga', type: 'Yoga', time: '6:00 PM', duration: '1 hour', instructor: 'P. Niraimathi', capacity: 15 },
+    { name: 'Night Yoga', type: 'Yoga', time: '7:30 PM', duration: '1 hour', instructor: 'Hema', capacity: 15 },
+    { name: 'Zumba Blast', type: 'Zumba', time: '9:00 AM', duration: '45 min', instructor: 'M. Uthayalakshmi', capacity: 20 },
+    { name: 'Zumba Fitness', type: 'Zumba', time: '10:00 AM', duration: '45 min', instructor: 'M. Ashwitha', capacity: 20 },
+    { name: 'Zumba Party', type: 'Zumba', time: '5:00 PM', duration: '1 hour', instructor: 'M. Uthayalakshmi', capacity: 25 },
+    { name: 'Zumba Night', type: 'Zumba', time: '7:00 PM', duration: '45 min', instructor: 'M. Ashwitha', capacity: 20 },
+    { name: 'Aerobics', type: 'Aerobics', time: '8:00 AM', duration: '1 hour', instructor: 'Hema', capacity: 25 },
+    { name: 'Cardio Blast', type: 'Aerobics', time: '11:00 AM', duration: '45 min', instructor: 'M. Ashwitha', capacity: 20 },
+    { name: 'HIIT Aerobics', type: 'Aerobics', time: '5:30 PM', duration: '1 hour', instructor: 'Hema', capacity: 25 },
+    { name: 'Strength Training', type: 'Strength Training', time: '9:30 AM', duration: '1 hour', instructor: 'J. Madhubala', capacity: 12 },
+    { name: 'Core Strength', type: 'Strength Training', time: '12:00 PM', duration: '45 min', instructor: 'J. Madhubala', capacity: 10 },
+    { name: 'HIIT Training', type: 'Strength Training', time: '6:30 PM', duration: '45 min', instructor: 'J. Madhubala', capacity: 10 },
+    { name: 'Personal Training', type: 'Personal Training', time: '10:00 AM', duration: '1 hour', instructor: 'J. Madhubala', capacity: 5 },
+    { name: 'Personal Training', type: 'Personal Training', time: '2:00 PM', duration: '1 hour', instructor: 'J. Madhubala', capacity: 5 },
+    { name: 'Personal Training', type: 'Personal Training', time: '7:30 PM', duration: '1 hour', instructor: 'J. Madhubala', capacity: 5 },
+  ];
+  
+  allDays.forEach((day) => {
+    branches.forEach((branch) => {
+      classTemplates.forEach((template) => {
+        schedule.push({
+          id: id++,
+          name: template.name,
+          type: template.type,
+          time: template.time,
+          duration: template.duration,
+          location: branch,
+          instructor: template.instructor,
+          capacity: template.capacity,
+          day: day,
+        });
+      });
+    });
+  });
+  
+  return schedule;
+};
+
+const classSchedule: ClassSession[] = generateFullSchedule();
 
 const typeColors: Record<string, string> = {
   'Yoga': '#800080',
@@ -359,10 +376,10 @@ export default function ClassSchedule() {
           className={`text-center mb-12 section-fade ${isVisible ? 'visible' : ''}`}
         >
           <p className="text-xs font-semibold tracking-[0.4em] uppercase mb-4" style={{ color: '#800080' }}>
-            Plan Your Workout
+            All Classes Available Daily
           </p>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-            Class <span className="gold-text">Schedule</span>
+            Weekly <span className="gold-text">Timetable</span>
           </h2>
           <div className="gold-line w-24 mx-auto mb-8" />
           <p className="text-white/60 text-lg max-w-2xl mx-auto">
@@ -455,6 +472,107 @@ export default function ClassSchedule() {
               <span className="text-white/60 text-sm">{type}</span>
             </div>
           ))}
+        </div>
+
+        {/* Branch Locations Map Section */}
+        <div className="mt-16 pt-12 border-t border-white/10">
+          <div className="text-center mb-8">
+            <p className="text-xs font-semibold tracking-[0.4em] uppercase mb-2" style={{ color: '#800080' }}>
+              Our Locations
+            </p>
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-4">
+              Branch <span className="gold-text">Locations</span>
+            </h3>
+            <div className="gold-line w-16 mx-auto" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Kadachanenthal Branch */}
+            <div 
+              className="p-6 rounded-lg transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
+              style={{
+                background: 'linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(128,0,128,0.05) 100%)',
+                border: '1px solid rgba(212,175,55,0.3)',
+              }}
+              onClick={() => window.open('https://maps.google.com/?q=Kadachanenthal,Madurai', '_blank')}
+            >
+              <div className="flex items-start gap-4">
+                <div 
+                  className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+                  style={{ background: 'rgba(212,175,55,0.2)' }}
+                >
+                  <MapPin size={24} style={{ color: '#D4AF37' }} />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-white mb-1">Kadachanenthal Branch</h4>
+                  <p className="text-white/60 text-sm mb-2">Kadachanenthal, Madurai, Tamil Nadu</p>
+                  <div className="flex items-center gap-2 text-sm" style={{ color: '#D4AF37' }}>
+                    <span>📞 90808 82873</span>
+                  </div>
+                  <p className="text-white/40 text-xs mt-2">Mon–Sat: 5:30 AM – 9:00 PM</p>
+                  <p className="text-white/60 text-xs mt-2 flex items-center gap-1">
+                    <span style={{ color: '#00C853' }}>●</span> Open Now
+                  </p>
+                </div>
+              </div>
+              {/* Mini Map Placeholder */}
+              <div 
+                className="mt-4 h-32 rounded-lg overflow-hidden relative"
+                style={{ background: 'rgba(0,0,0,0.3)' }}
+              >
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <MapPin size={32} style={{ color: '#D4AF37' }} className="mx-auto mb-2" />
+                    <p className="text-white/60 text-xs">Click to view on Google Maps</p>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent" />
+              </div>
+            </div>
+
+            {/* Othakkadai Branch */}
+            <div 
+              className="p-6 rounded-lg transition-all duration-300 hover:scale-[1.02] cursor-pointer group"
+              style={{
+                background: 'linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(128,0,128,0.05) 100%)',
+                border: '1px solid rgba(212,175,55,0.3)',
+              }}
+              onClick={() => window.open('https://maps.google.com/?q=Othakkadai,Madurai', '_blank')}
+            >
+              <div className="flex items-start gap-4">
+                <div 
+                  className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+                  style={{ background: 'rgba(212,175,55,0.2)' }}
+                >
+                  <MapPin size={24} style={{ color: '#D4AF37' }} />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-white mb-1">Othakkadai Branch</h4>
+                  <p className="text-white/60 text-sm mb-2">Othakkadai, Madurai, Tamil Nadu</p>
+                  <div className="flex items-center gap-2 text-sm" style={{ color: '#D4AF37' }}>
+                    <span>📞 93442 49843</span>
+                  </div>
+                  <p className="text-white/40 text-xs mt-2">Mon–Sat: 5:30 AM – 9:00 PM</p>
+                  <p className="text-white/60 text-xs mt-2 flex items-center gap-1">
+                    <span style={{ color: '#00C853' }}>●</span> Open Now
+                  </p>
+                </div>
+              </div>
+              {/* Mini Map Placeholder */}
+              <div 
+                className="mt-4 h-32 rounded-lg overflow-hidden relative"
+                style={{ background: 'rgba(0,0,0,0.3)' }}
+              >
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <MapPin size={32} style={{ color: '#D4AF37' }} className="mx-auto mb-2" />
+                    <p className="text-white/60 text-xs">Click to view on Google Maps</p>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
