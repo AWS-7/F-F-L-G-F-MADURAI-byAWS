@@ -65,11 +65,25 @@ function GalleryCard({ src, alt, label, onClick, isMobile = false }: { src: stri
   return (
     <div
       onClick={onClick}
-      className={`relative overflow-hidden group cursor-pointer ${isMobile ? 'flex-shrink-0' : ''}`}
+      className={`relative overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 ${isMobile ? 'flex-shrink-0' : ''}`}
       style={isMobile
-        ? { borderRadius: '8px', height: '240px', width: '320px' }
-        : { borderRadius: '8px', height: '260px', width: '100%' }
+        ? { 
+            borderRadius: '8px', 
+            height: '240px', 
+            width: '320px',
+          }
+        : { 
+            borderRadius: '8px', 
+            height: '260px', 
+            width: '100%',
+          }
       }
+      onMouseEnter={(e) => {
+        e.currentTarget.style.boxShadow = '0 0 30px rgba(212,175,55,0.6), 0 0 60px rgba(212,175,55,0.3), 0 0 90px rgba(212,175,55,0.1)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.boxShadow = 'none';
+      }}
     >
       <img
         src={imgError ? fallbackSrc : src}
