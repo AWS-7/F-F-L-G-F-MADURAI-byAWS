@@ -154,7 +154,7 @@ export default function Programs() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={headerRef} className="text-center mb-16">
+        <div ref={headerRef} className="text-center mb-16" data-aos="fade-down">
           <p
             ref={subtitleRef}
             className={`reveal-subtitle gpu-smooth text-xs font-semibold tracking-[0.4em] uppercase mb-4 ${subtitleVisible ? 'is-visible' : ''}`}
@@ -183,7 +183,7 @@ export default function Programs() {
         </div>
 
         {/* Desktop Grid Layout */}
-        <div ref={cardsRef} className="hidden lg:grid grid-cols-4 gap-5">
+        <div ref={cardsRef} className="hidden lg:grid grid-cols-4 gap-5" data-aos="fade-up" data-aos-delay="200">
           {programs.map((program, index) => (
             <div
               key={program.title}
@@ -331,7 +331,7 @@ export default function Programs() {
         </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center" data-aos="fade-up" data-aos-delay="400">
           {[
             { label: 'Zumba', desc: 'Dance fitness for every woman', available: true },
             { label: 'Personal Training', desc: 'One-on-one expert guidance', available: true },

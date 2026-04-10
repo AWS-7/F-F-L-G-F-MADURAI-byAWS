@@ -58,6 +58,7 @@ export default function FAQ() {
         <div
           ref={ref}
           className={`text-center mb-16 section-fade ${isVisible ? 'visible' : ''}`}
+          data-aos="fade-down"
         >
           <p
             className="text-xs font-semibold tracking-[0.4em] uppercase mb-4"
@@ -75,7 +76,7 @@ export default function FAQ() {
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4" data-aos="fade-up" data-aos-delay="200">
           {faqs.map((faq, index) => (
             <div
               key={index}

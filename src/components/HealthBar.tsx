@@ -59,6 +59,7 @@ export default function HealthBar() {
         <div
           ref={ref}
           className={`text-center mb-16 section-fade ${isVisible ? 'visible' : ''}`}
+          data-aos="fade-down"
         >
           <p
             className="text-xs font-semibold tracking-[0.4em] uppercase mb-4"
@@ -76,7 +77,7 @@ export default function HealthBar() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
           {menuItems.map((item) => (
             <div
               key={item.name}

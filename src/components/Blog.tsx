@@ -578,6 +578,7 @@ export default function Blog() {
         <div
           ref={ref}
           className={`text-center mb-12 section-fade ${isVisible ? 'visible' : ''}`}
+          data-aos="fade-down"
         >
           <p className="text-xs font-semibold tracking-[0.4em] uppercase mb-4" style={{ color: '#800080' }}>
             Inspiring Journeys
@@ -592,7 +593,7 @@ export default function Blog() {
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up" data-aos-delay="100">
           {categories.map(cat => (
             <button
               key={cat}
@@ -622,7 +623,7 @@ export default function Blog() {
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
           {filteredPosts.map((post) => (
             <BlogCard 
               key={post.id}

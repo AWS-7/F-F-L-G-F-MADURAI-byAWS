@@ -105,7 +105,7 @@ export default function About() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={sectionRef}>
+        <div ref={sectionRef} data-aos="fade-up">
           <div className="text-center mb-16">
             <p
               ref={subtitleRef}
@@ -167,7 +167,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20" data-aos="fade-up" data-aos-delay="200">
           {/* Image with mask reveal */}
           <div
             ref={imageRef}
@@ -223,6 +223,7 @@ export default function About() {
 
         <div
           ref={quoteRef}
+          data-aos="zoom-in"
           className={`reveal-section gpu-smooth relative overflow-hidden text-center py-12 px-6 ${quoteVisible ? 'is-visible' : ''}`}
           style={{
             background: 'linear-gradient(135deg, rgba(128,0,128,0.2) 0%, rgba(128,0,128,0.05) 100%)',

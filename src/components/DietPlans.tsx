@@ -157,6 +157,7 @@ export default function DietPlans() {
         <div
           ref={ref}
           className={`text-center mb-16 section-fade ${isVisible ? 'visible' : ''}`}
+          data-aos="fade-down"
         >
           <p
             className="text-xs font-semibold tracking-[0.4em] uppercase mb-4"
@@ -175,7 +176,7 @@ export default function DietPlans() {
         </div>
 
         {/* Desktop Grid Layout */}
-        <div className="hidden lg:grid grid-cols-4 gap-5">
+        <div className="hidden lg:grid grid-cols-4 gap-5" data-aos="fade-up" data-aos-delay="200">
           {dietPlans.map((plan, index) => (
             <div
               key={plan.title}

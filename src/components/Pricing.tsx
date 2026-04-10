@@ -295,7 +295,7 @@ export default function Pricing() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={headerRef} className="text-center mb-12">
+        <div ref={headerRef} className="text-center mb-12" data-aos="fade-down">
           <p
             ref={subtitleRef}
             className={`reveal-subtitle gpu-smooth text-xs font-semibold tracking-[0.4em] uppercase mb-4 ${subtitleVisible ? 'is-visible' : ''}`}
@@ -363,6 +363,8 @@ export default function Pricing() {
         <div 
           ref={plansRef} 
           className={`hidden lg:grid grid-cols-3 gap-5 mb-16 transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
+          data-aos="fade-up"
+          data-aos-delay="200"
         >
           {currentBranch.plans.map((plan, index) => (
             <div
@@ -543,7 +545,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        <div className="mb-6">
+        <div className="mb-6" data-aos="fade-up" data-aos-delay="400">
           <div className="text-center mb-8">
             <p
               className="text-xs font-semibold tracking-[0.4em] uppercase mb-3"

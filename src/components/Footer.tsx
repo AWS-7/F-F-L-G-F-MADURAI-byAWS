@@ -53,7 +53,7 @@ export default function Footer() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6" data-aos="fade-up">
         <div className="text-center mb-8">
           <div className="inline-flex flex-col items-center mb-2">
             <span
@@ -100,7 +100,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8" data-aos="fade-up" data-aos-delay="100">
           {/* Quick Links */}
           <div className="text-center">
             <h4

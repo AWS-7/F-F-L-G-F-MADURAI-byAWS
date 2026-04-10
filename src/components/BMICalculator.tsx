@@ -69,6 +69,7 @@ export default function BMICalculator() {
         <div
           ref={ref}
           className={`text-center mb-16 section-fade ${isVisible ? 'visible' : ''}`}
+          data-aos="fade-down"
         >
           <p
             className="text-xs font-semibold tracking-[0.4em] uppercase mb-4"
@@ -86,7 +87,7 @@ export default function BMICalculator() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto" data-aos="zoom-in" data-aos-delay="200">
           <div
             className="dark-card p-8 md:p-12"
             style={{

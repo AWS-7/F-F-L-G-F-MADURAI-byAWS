@@ -133,6 +133,7 @@ export default function Reviews() {
         <div
           ref={ref}
           className={`text-center section-fade ${isVisible ? 'visible' : ''}`}
+          data-aos="fade-down"
         >
           <p
             className="text-xs font-semibold tracking-[0.4em] uppercase mb-4"
@@ -168,7 +169,7 @@ export default function Reviews() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12" data-aos="fade-up" data-aos-delay="300">
         <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto text-center">
           {[
             { value: '4.9', label: 'Average Rating' },

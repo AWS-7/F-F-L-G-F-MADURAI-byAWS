@@ -295,7 +295,7 @@ export default function Gallery() {
         <FollowUsSection />
 
         {/* Our Spaces Section */}
-        <div ref={headerRef} className="text-center mb-16">
+        <div ref={headerRef} className="text-center mb-16" data-aos="fade-down">
           <p
             ref={subtitleRef}
             className={`reveal-subtitle gpu-smooth text-xs font-semibold tracking-[0.4em] uppercase mb-4 ${subtitleVisible ? 'is-visible' : ''}`}
@@ -324,7 +324,7 @@ export default function Gallery() {
         </div>
 
         {/* Desktop Grid Layout - Equal 3 columns */}
-        <div ref={galleryRef} className="hidden md:grid grid-cols-3 gap-4">
+        <div ref={galleryRef} className="hidden md:grid grid-cols-3 gap-4" data-aos="fade-up" data-aos-delay="200">
           {galleryItems.map((item, index) => (
             <div 
               key={index}
@@ -373,6 +373,8 @@ export default function Gallery() {
 
         <div
           className="mt-12 p-8 text-center"
+          data-aos="fade-up"
+          data-aos-delay="300"
           style={{
             background: 'rgba(255,255,255,0.02)',
             border: '1px solid rgba(212,175,55,0.1)',

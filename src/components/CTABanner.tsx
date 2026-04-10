@@ -54,6 +54,7 @@ export default function CTABanner() {
         <div
           ref={ref}
           className={`text-center section-fade ${isVisible ? 'visible' : ''}`}
+          data-aos="zoom-in"
         >
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full"

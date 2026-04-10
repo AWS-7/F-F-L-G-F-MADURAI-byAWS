@@ -132,6 +132,7 @@ export default function Contact() {
         <div
           ref={ref}
           className={`text-center mb-16 section-fade ${isVisible ? 'visible' : ''}`}
+          data-aos="fade-down"
         >
           <p
             className="text-xs font-semibold tracking-[0.4em] uppercase mb-4"
