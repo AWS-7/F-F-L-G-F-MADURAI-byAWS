@@ -28,6 +28,7 @@ dist-ssr
 .env
 
 # Large video files - don't commit to Git (22MB total)
-*.mp4
-*.mov
-*.avi
+# But allow in public folder for GitHub Pages
+src/images/*.mp4
+src/images/*.mov
+src/images/*.avi
