@@ -3,7 +3,7 @@ import { Clock, MapPin, Users, ChevronRight, BookOpen, X, Check, ChevronLeft, Ch
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const locations = ['All', 'Kadachanenthal', 'Othakkadai'];
-const classTypes = ['All', 'Yoga', 'Zumba', 'Aerobics', 'Personal Training', 'Strength Training'];
+const classTypes = ['All', 'HIIT'];
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 interface ClassSession {
@@ -27,25 +27,7 @@ const generateFullSchedule = (): ClassSession[] => {
   const allDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   
   const classTemplates = [
-    { name: 'Morning Yoga', type: 'Yoga', time: '6:00 AM', duration: '1 hour', instructor: 'P. Niraimathi', capacity: 15 },
-    { name: 'Sunrise Yoga', type: 'Yoga', time: '5:45 AM', duration: '1 hour', instructor: 'Hema', capacity: 15 },
-    { name: 'Power Yoga', type: 'Yoga', time: '6:30 AM', duration: '1 hour', instructor: 'P. Niraimathi', capacity: 15 },
-    { name: 'Gentle Yoga', type: 'Yoga', time: '7:00 AM', duration: '1 hour', instructor: 'Hema', capacity: 15 },
-    { name: 'Evening Yoga', type: 'Yoga', time: '6:00 PM', duration: '1 hour', instructor: 'P. Niraimathi', capacity: 15 },
-    { name: 'Night Yoga', type: 'Yoga', time: '7:30 PM', duration: '1 hour', instructor: 'Hema', capacity: 15 },
-    { name: 'Zumba Blast', type: 'Zumba', time: '9:00 AM', duration: '45 min', instructor: 'M. Uthayalakshmi', capacity: 20 },
-    { name: 'Zumba Fitness', type: 'Zumba', time: '10:00 AM', duration: '45 min', instructor: 'M. Ashwitha', capacity: 20 },
-    { name: 'Zumba Party', type: 'Zumba', time: '5:00 PM', duration: '1 hour', instructor: 'M. Uthayalakshmi', capacity: 25 },
-    { name: 'Zumba Night', type: 'Zumba', time: '7:00 PM', duration: '45 min', instructor: 'M. Ashwitha', capacity: 20 },
-    { name: 'Aerobics', type: 'Aerobics', time: '8:00 AM', duration: '1 hour', instructor: 'Hema', capacity: 25 },
-    { name: 'Cardio Blast', type: 'Aerobics', time: '11:00 AM', duration: '45 min', instructor: 'M. Ashwitha', capacity: 20 },
-    { name: 'HIIT Aerobics', type: 'Aerobics', time: '5:30 PM', duration: '1 hour', instructor: 'Hema', capacity: 25 },
-    { name: 'Strength Training', type: 'Strength Training', time: '9:30 AM', duration: '1 hour', instructor: 'J. Madhubala', capacity: 12 },
-    { name: 'Core Strength', type: 'Strength Training', time: '12:00 PM', duration: '45 min', instructor: 'J. Madhubala', capacity: 10 },
-    { name: 'HIIT Training', type: 'Strength Training', time: '6:30 PM', duration: '45 min', instructor: 'J. Madhubala', capacity: 10 },
-    { name: 'Personal Training', type: 'Personal Training', time: '10:00 AM', duration: '1 hour', instructor: 'J. Madhubala', capacity: 5 },
-    { name: 'Personal Training', type: 'Personal Training', time: '2:00 PM', duration: '1 hour', instructor: 'J. Madhubala', capacity: 5 },
-    { name: 'Personal Training', type: 'Personal Training', time: '7:30 PM', duration: '1 hour', instructor: 'J. Madhubala', capacity: 5 },
+    { name: 'HIIT Training', type: 'HIIT', time: '6:30 PM', duration: '45 min', instructor: 'J. Madhubala', capacity: 10 },
   ];
   
   allDays.forEach((day) => {
@@ -72,11 +54,7 @@ const generateFullSchedule = (): ClassSession[] => {
 const classSchedule: ClassSession[] = generateFullSchedule();
 
 const typeColors: Record<string, string> = {
-  'Yoga': '#800080',
-  'Zumba': '#D4AF37',
-  'Aerobics': '#FF6B6B',
-  'Strength Training': '#4ECDC4',
-  'Personal Training': '#95E1D3',
+  'HIIT': '#D4AF37',
 };
 
 // Mobile Carousel Component
