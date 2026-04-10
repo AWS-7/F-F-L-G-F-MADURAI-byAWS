@@ -570,31 +570,31 @@ function FollowUsSection() {
         </div>
 
         {/* Social Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
           {/* Instagram Button - Neon Style */}
           <a
             href="https://www.instagram.com/femme_flexmdu59?igsh=YmlodGZvMGdodHRx"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 px-10 py-5 text-lg font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105"
+            className="group flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105 w-full sm:w-auto text-center"
             style={{
               background: 'rgba(0,0,0,0.6)',
               border: '3px solid transparent',
               borderImage: 'linear-gradient(135deg, #833AB4, #C13584, #E1306C, #FCAF45) 1',
               borderRadius: '8px',
               boxShadow: '0 0 20px rgba(195,53,132,0.5), 0 0 40px rgba(131,58,180,0.3), inset 0 0 20px rgba(195,53,132,0.1)',
+              minWidth: '280px',
             }}
           >
             <Instagram 
-              size={26} 
+              size={24} 
+              className="flex-shrink-0"
               style={{
                 filter: 'drop-shadow(0 0 8px #E1306C) drop-shadow(0 0 15px #833AB4)',
-                background: 'linear-gradient(135deg, #833AB4, #E1306C, #FCAF45)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
               }}
             />
             <span 
+              className="whitespace-nowrap"
               style={{
                 color: '#fff',
                 textShadow: '0 0 10px #E1306C, 0 0 20px #C13584, 0 0 30px rgba(195,53,132,0.8)',
@@ -610,22 +610,25 @@ function FollowUsSection() {
             href="https://www.facebook.com/share/18EeaQWTW1/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 px-10 py-5 text-lg font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105"
+            className="group flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105 w-full sm:w-auto text-center"
             style={{
               background: 'rgba(0,0,0,0.6)',
               border: '3px solid #1877F2',
               borderRadius: '8px',
               boxShadow: '0 0 20px rgba(24,119,242,0.6), 0 0 40px rgba(24,119,242,0.4), inset 0 0 20px rgba(24,119,242,0.1)',
+              minWidth: '280px',
             }}
           >
             <Facebook 
-              size={26} 
+              size={24} 
+              className="flex-shrink-0"
               style={{
                 filter: 'drop-shadow(0 0 8px #1877F2) drop-shadow(0 0 15px #1877F2)',
                 color: '#1877F2',
               }}
             />
             <span 
+              className="whitespace-nowrap"
               style={{
                 color: '#fff',
                 textShadow: '0 0 10px #1877F2, 0 0 20px #1877F2, 0 0 30px rgba(24,119,242,0.8)',
