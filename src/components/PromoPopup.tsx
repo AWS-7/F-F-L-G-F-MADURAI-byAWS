@@ -128,7 +128,12 @@ export default function PromoPopup() {
             </p>
 
             <button
-              onClick={handleClose}
+              onClick={() => {
+                handleClose();
+                setTimeout(() => {
+                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                }, 400);
+              }}
               className="mt-6 w-full py-3 text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:scale-105"
               style={{
                 background: 'linear-gradient(135deg, #D4AF37, #F2D060)',

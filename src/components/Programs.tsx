@@ -93,30 +93,51 @@ export default function Programs() {
     document.body.style.overflow = '';
   };
 
-  // Auto-scroll effect for mobile
+  // Auto-scroll effect for mobile - improved to prevent shaking
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
 
     let animationId: number;
     let scrollPos = 0;
-    const scrollSpeed = 1; // 1px per frame for smooth slow scroll
+    let lastScrollLeft = 0;
+    let isManuallyScrolling = false;
+    const scrollSpeed = 0.5; // Slower speed for smoother scroll
     const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
+    // Detect manual scrolling
+    const handleScroll = () => {
+      if (Math.abs(scrollContainer.scrollLeft - lastScrollLeft) > 2) {
+        isManuallyScrolling = true;
+        scrollPos = scrollContainer.scrollLeft;
+        // Resume auto-scroll after 2 seconds of no manual scroll
+        setTimeout(() => {
+          isManuallyScrolling = false;
+        }, 2000);
+      }
+      lastScrollLeft = scrollContainer.scrollLeft;
+    };
+
+    scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
+
     const scroll = () => {
-      if (!isPaused && window.innerWidth < 1024) {
+      if (!isPaused && !isManuallyScrolling && window.innerWidth < 1024) {
         scrollPos += scrollSpeed;
         if (scrollPos >= maxScroll) {
           scrollPos = 0;
         }
         scrollContainer.scrollLeft = scrollPos;
+        lastScrollLeft = scrollPos;
       }
       animationId = requestAnimationFrame(scroll);
     };
 
     animationId = requestAnimationFrame(scroll);
 
-    return () => cancelAnimationFrame(animationId);
+    return () => {
+      cancelAnimationFrame(animationId);
+      scrollContainer.removeEventListener('scroll', handleScroll);
+    };
   }, [isPaused]);
 
   return (
@@ -227,9 +248,9 @@ export default function Programs() {
             msOverflowStyle: 'none',
           }}
           onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
+          onMouseLeave={() => setTimeout(() => setIsPaused(false), 500)}
           onTouchStart={() => setIsPaused(true)}
-          onTouchEnd={() => setTimeout(() => setIsPaused(false), 1000)}
+          onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
         >
           {programs.map((program) => (
             <div
