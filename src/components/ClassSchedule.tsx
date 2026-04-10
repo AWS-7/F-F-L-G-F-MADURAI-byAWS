@@ -337,7 +337,7 @@ export default function ClassSchedule() {
   const submitBooking = () => {
     if (!bookingModal) return;
     const message = `Hello! I'd like to book a class at Femme Flex.%0A%0A*Class:* ${bookingModal.name}%0A*Day:* ${bookingModal.day}%0A*Time:* ${bookingModal.time}%0A*Location:* ${bookingModal.location}%0A*Instructor:* ${bookingModal.instructor}%0A%0A*My Details:*%0AName: ${bookingForm.name}%0APhone: ${bookingForm.phone}`;
-    window.open(`https://wa.me/918220723320?text=${message}`, '_blank');
+    window.open(`https://wa.me/919080882873?text=${message}`, '_blank');
     setBookingSuccess(true);
     setTimeout(() => {
       setBookingModal(null);

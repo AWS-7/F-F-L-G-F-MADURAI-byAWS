@@ -1,6 +1,6 @@
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { useEffect, useRef, useState } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Instagram, Facebook } from 'lucide-react';
 
 // Import local images
 import femme2 from '../images/femme2.webp';
@@ -497,6 +497,38 @@ function VideoSection() {
             />
           </div>
         ))}
+      </div>
+
+      {/* Social Media Buttons */}
+      <div className="flex justify-center gap-4 mt-8">
+        <a
+          href="https://instagram.com/femmeflex_madurai"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-6 py-3 text-sm font-semibold tracking-wider uppercase transition-all duration-300 hover:scale-105"
+          style={{
+            background: 'linear-gradient(135deg, #833AB4, #FD1D1D, #F77737)',
+            color: '#fff',
+            borderRadius: '4px',
+          }}
+        >
+          <Instagram size={18} />
+          Follow on Instagram
+        </a>
+        <a
+          href="https://facebook.com/femmeflexmadurai"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-6 py-3 text-sm font-semibold tracking-wider uppercase transition-all duration-300 hover:scale-105"
+          style={{
+            background: '#1877F2',
+            color: '#fff',
+            borderRadius: '4px',
+          }}
+        >
+          <Facebook size={18} />
+          Follow on Facebook
+        </a>
       </div>
 
       {/* Video Lightbox */}

@@ -3,9 +3,9 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import femme4 from '../images/femme4.webp';
 
 const stats = [
-  { value: 'Five', label: 'Expert Trainers' },
-  { value: 'Two', label: 'branch' },
-  { value: 'Hundred', label: 'Active Members' },
+  { value: 'Expert', label: 'Expert Trainers' },
+  { value: 'Elite', label: 'Elite Branches' },
+  { value: 'Many', label: 'Active Many Members' },
 ];
 
 const pillars = [

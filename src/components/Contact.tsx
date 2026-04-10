@@ -25,13 +25,13 @@ const branches = [
   {
     name: 'Kadachanenthal Branch',
     address: 'Kadachanenthal, Madurai, Tamil Nadu',
-    phone: '82207 23320',
+    phone: '90808 82873',
     hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
   },
   {
     name: 'Ottakadai Branch',
     address: 'Ottakadai, Madurai, Tamil Nadu',
-    phone: '82207 23320',
+    phone: '93442 49843',
     hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
   },
 ];
@@ -90,10 +90,10 @@ export default function Contact() {
 
     if (viaWhatsApp) {
       const encodedMsg = encodeURIComponent(message);
-      window.open(`https://wa.me/918220723320?text=${encodedMsg}`, '_blank');
+      window.open(`https://wa.me/919080882873?text=${encodedMsg}`, '_blank');
     } else {
       const encodedMsg = encodeURIComponent(message);
-      window.open(`sms:8220723320?body=${encodedMsg}`, '_blank');
+      window.open(`sms:9080882873?body=${encodedMsg}`, '_blank');
     }
   };
 
