@@ -380,7 +380,7 @@ export default function Gallery() {
           }}
         >
           <p className="text-white/40 text-sm tracking-wider uppercase">
-            Two Premium Locations &bull; Kadachanenthal &bull; Ottakadai &bull; Madurai
+            Two Premium Locations &bull; Kadachanenthal &bull; Othakkadai &bull; Madurai
           </p>
         </div>
 

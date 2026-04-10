@@ -14,7 +14,7 @@ const reviews = [
     name: 'Anitha R.',
     rating: 5,
     text: 'I have tried many gyms but nothing compares to Femme Flex. The HIIT classes are challenging and the instructors push you to be your best self.',
-    branch: 'Ottakadai',
+    branch: 'Othakkadai',
     avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=1',
   },
   {
@@ -28,7 +28,7 @@ const reviews = [
     name: 'Deepa V.',
     rating: 5,
     text: 'Lost 8 kgs in 3 months with the 90-Day Transformation program. The coaches are motivating and the nutrition guidance was spot on!',
-    branch: 'Ottakadai',
+    branch: 'Othakkadai',
     avatar: 'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=1',
   },
   {
@@ -42,7 +42,7 @@ const reviews = [
     name: 'Saranya K.',
     rating: 5,
     text: 'Strength training program here is elite. In just two months my confidence skyrocketed. This place really does redefine women\'s fitness!',
-    branch: 'Ottakadai',
+    branch: 'Othakkadai',
     avatar: 'https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=1',
   },
   {
@@ -56,7 +56,7 @@ const reviews = [
     name: 'Vijaya N.',
     rating: 5,
     text: 'From beginner to advanced — this gym has grown with me. The team genuinely cares about every member\'s progress. It is a true sanctuary.',
-    branch: 'Ottakadai',
+    branch: 'Othakkadai',
     avatar: 'https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=1',
   },
 ];

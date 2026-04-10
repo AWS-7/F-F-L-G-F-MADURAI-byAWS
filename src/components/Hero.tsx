@@ -125,7 +125,7 @@ export default function Hero() {
           <p className="text-xs text-white/50">Madurai, Tamil Nadu</p>
         </div>
         <div className="text-right">
-          <p className="text-xs text-white/30 tracking-wider uppercase">Ottakadai Branch</p>
+          <p className="text-xs text-white/30 tracking-wider uppercase">Othakkadai Branch</p>
           <p className="text-xs text-white/50">Madurai, Tamil Nadu</p>
         </div>
       </div>

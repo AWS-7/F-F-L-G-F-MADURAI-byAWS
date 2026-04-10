@@ -123,7 +123,7 @@ export default function CTABanner() {
             <div className="hidden md:block w-px h-4 bg-white/20" />
             <div className="flex items-center gap-2">
               <MapPin size={14} style={{ color: '#D4AF37' }} />
-              <span>Kadachanenthal & Ottakadai</span>
+              <span>Kadachanenthal & Othakkadai</span>
             </div>
             <div className="hidden md:block w-px h-4 bg-white/20" />
             <div className="flex items-center gap-2">

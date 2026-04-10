@@ -7,7 +7,7 @@ export interface PricingPlan {
 }
 
 export interface Branch {
-  id: 'kadachanenthal' | 'ottakadai';
+  id: 'kadachanenthal' | 'othakkadai';
   name: string;
   address: string;
   phone: string;

@@ -137,7 +137,7 @@ export default function HealthBar() {
             Available at both{' '}
             <span style={{ color: '#D4AF37' }}>Kadachanenthal</span>
             {' & '}
-            <span style={{ color: '#D4AF37' }}>Ottakadai</span>
+            <span style={{ color: '#D4AF37' }}>Othakkadai</span>
             {' branches during gym hours.'}
           </p>
         </div>

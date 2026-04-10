@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: 'Is there parking available?',
-    answer: 'Yes, both our Kadachanenthal and Ottakadai branches have dedicated parking spaces for members. Safety and convenience are our priorities.',
+    answer: 'Yes, both our Kadachanenthal and Othakkadai branches have dedicated parking spaces for members. Safety and convenience are our priorities.',
   },
   {
     question: 'What makes Femme Flex different from other gyms?',

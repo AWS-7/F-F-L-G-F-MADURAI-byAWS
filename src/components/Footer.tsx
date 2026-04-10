@@ -8,8 +8,8 @@ const branches = [
     hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
   },
   {
-    name: 'Ottakadai Branch',
-    address: 'Ottakadai, Madurai, Tamil Nadu',
+    name: 'Othakkadai Branch',
+    address: 'Othakkadai, Madurai, Tamil Nadu',
     phone: '93442 49843',
     hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
   },

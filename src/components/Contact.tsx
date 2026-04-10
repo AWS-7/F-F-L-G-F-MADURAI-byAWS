@@ -10,12 +10,12 @@ const plans = [
   { name: 'Annual (Kadachanenthal)', price: '₹12,000', duration: '1 Year', location: 'Kadachanenthal' },
   { name: 'Personal Training (Kadachanenthal)', price: '₹6,000', duration: 'Monthly', location: 'Kadachanenthal' },
   { name: '90-Day Transformation (Kadachanenthal)', price: '₹8,000', duration: '3 Months', location: 'Kadachanenthal' },
-  { name: 'Monthly (Ottakadai)', price: '₹1,200', duration: '1 Month', location: 'Ottakadai' },
-  { name: 'Quarterly (Ottakadai)', price: '₹3,000', duration: '3 Months', location: 'Ottakadai' },
-  { name: 'Half Yearly (Ottakadai)', price: '₹6,000', duration: '6 Months', location: 'Ottakadai', popular: true },
-  { name: 'Annual (Ottakadai)', price: '₹12,000', duration: '1 Year', location: 'Ottakadai' },
-  { name: 'Personal Training (Ottakadai)', price: '₹5,000', duration: 'Monthly', location: 'Ottakadai' },
-  { name: '3M Transformation (Ottakadai)', price: '₹6,000', duration: '3 Months', location: 'Ottakadai' },
+  { name: 'Monthly (Othakkadai)', price: '₹1,200', duration: '1 Month', location: 'Othakkadai' },
+  { name: 'Quarterly (Othakkadai)', price: '₹3,000', duration: '3 Months', location: 'Othakkadai' },
+  { name: 'Half Yearly (Othakkadai)', price: '₹6,000', duration: '6 Months', location: 'Othakkadai', popular: true },
+  { name: 'Annual (Othakkadai)', price: '₹12,000', duration: '1 Year', location: 'Othakkadai' },
+  { name: 'Personal Training (Othakkadai)', price: '₹5,000', duration: 'Monthly', location: 'Othakkadai' },
+  { name: '3M Transformation (Othakkadai)', price: '₹6,000', duration: '3 Months', location: 'Othakkadai' },
   { name: 'Yoga Classes', price: '₹2,500', duration: 'Monthly', location: 'Both' },
   { name: 'Zumba Classes', price: '₹3,000', duration: 'Monthly', location: 'Both' },
   { name: 'Combo (Yoga + Zumba)', price: '₹6,000', duration: 'Monthly', location: 'Both' },
@@ -29,8 +29,8 @@ const branches = [
     hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
   },
   {
-    name: 'Ottakadai Branch',
-    address: 'Ottakadai, Madurai, Tamil Nadu',
+    name: 'Othakkadai Branch',
+    address: 'Othakkadai, Madurai, Tamil Nadu',
     phone: '93442 49843',
     hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
   },
@@ -258,10 +258,10 @@ export default function Contact() {
                       </option>
                     ))}
                   </optgroup>
-                  <optgroup label="Ottakadai Plans" style={{ background: '#111' }}>
-                    {plans.filter(p => p.location === 'Ottakadai').map(plan => (
+                  <optgroup label="Othakkadai Plans" style={{ background: '#111' }}>
+                    {plans.filter(p => p.location === 'Othakkadai').map(plan => (
                       <option key={plan.name} value={plan.name} style={{ background: '#111', color: '#fff' }}>
-                        {plan.name.replace(' (Ottakadai)', '')} - {plan.price}
+                        {plan.name.replace(' (Othakkadai)', '')} - {plan.price}
                       </option>
                     ))}
                   </optgroup>

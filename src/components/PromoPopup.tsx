@@ -124,7 +124,7 @@ export default function PromoPopup() {
             </p>
 
             <p className="text-white/40 text-xs mt-4 tracking-wider">
-              Valid at both Kadachanenthal & Ottakadai branches
+              Valid at both Kadachanenthal & Othakkadai branches
             </p>
 
             <button

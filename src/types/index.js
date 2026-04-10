@@ -11,7 +11,7 @@
 
 /**
  * @typedef {Object} Branch
- * @property {'kadachanenthal' | 'ottakadai'} id
+ * @property {'kadachanenthal' | 'othakkadai'} id
  * @property {string} name
  * @property {string} address
  * @property {string} phone
