@@ -36,16 +36,16 @@ function MarqueeRow({
         {repeatedWords.map((word, index) => (
           <span
             key={index}
-            className="inline-flex items-center mx-4 md:mx-8"
+            className="inline-flex items-center mx-2 md:mx-4"
           >
             <span
-              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight"
+              className="font-display text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-tight"
               style={{ color: '#800080' }}
             >
               {word}
             </span>
             <span
-              className="mx-4 md:mx-8 text-2xl md:text-3xl"
+              className="mx-2 md:mx-4 text-lg md:text-xl"
               style={{ color: '#800080', opacity: 0.5 }}
             >
               ✦
@@ -62,8 +62,8 @@ export default function TextMarquee() {
 
   return (
     <section
-      className="relative py-8 md:py-12 overflow-hidden cursor-pointer"
-      style={{ backgroundColor: '#000' }}
+      className="relative py-3 md:py-4 overflow-hidden cursor-pointer flex flex-col justify-center"
+      style={{ backgroundColor: '#000', minHeight: '80px', maxHeight: '100px' }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -82,7 +82,7 @@ export default function TextMarquee() {
       />
 
       {/* Row 1: Right to Left */}
-      <div className="mb-4 md:mb-6">
+      <div className="mb-2 md:mb-3">
         <MarqueeRow direction="left" isHovered={isHovered} />
       </div>
 
