@@ -11,6 +11,7 @@ import DietPlans from './components/DietPlans';
 import Gallery from './components/Gallery';
 import Pricing from './components/Pricing';
 import BMICalculator from './components/BMICalculator';
+import AIDietGenerator from './components/AIDietGenerator';
 import HealthBar from './components/HealthBar';
 import Reviews from './components/Reviews';
 import Contact from './components/Contact';
@@ -46,6 +47,7 @@ function App() {
         <DietPlans />
         <Gallery />
         <Pricing />
+        <AIDietGenerator />
         <ClassSchedule />
         <CTABanner />
         <HealthBar />
