@@ -142,8 +142,8 @@ export default function Reviews() {
             What Our Members Say
           </p>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-            Client Reviews - Top{' '}
-            <span className="gold-text">Rated Gym Madurai</span>
+            Real{' '}
+            <span className="gold-text">Stories & Results</span>
           </h2>
           <div className="gold-line w-24 mx-auto mb-6" />
           <p className="text-white/60 text-lg max-w-2xl mx-auto">

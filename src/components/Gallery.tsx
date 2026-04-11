@@ -301,15 +301,15 @@ export default function Gallery() {
             className={`reveal-subtitle gpu-smooth text-xs font-semibold tracking-[0.4em] uppercase mb-4 ${subtitleVisible ? 'is-visible' : ''}`}
             style={{ color: '#800080', transitionDelay: '0.1s' }}
           >
-            Tour Our Ladies Gym
+            Inside The Sanctuary
           </p>
           <h2
             ref={headingRef}
             className={`reveal-heading gpu-smooth font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${headingVisible ? 'is-visible' : ''}`}
             style={{ transitionDelay: '0s' }}
           >
-            Our Women-Only{' '}
-            <span className="gold-text">Gym Facilities</span>
+            Sacred{' '}
+            <span className="gold-text">Spaces & Facilities</span>
           </h2>
           <div
             className={`reveal-text gpu-smooth gold-line w-24 mx-auto mb-8 ${headingVisible ? 'is-visible' : ''}`}

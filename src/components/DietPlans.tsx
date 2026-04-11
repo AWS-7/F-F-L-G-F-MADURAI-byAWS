@@ -166,8 +166,8 @@ export default function DietPlans() {
             Nutrition Excellence
           </p>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-            Weight Loss{' '}
-            <span className="gold-text">Diet Plans Madurai</span>
+            Precision{' '}
+            <span className="gold-text">Nutrition & Diet Plans</span>
           </h2>
           <div className="gold-line w-24 mx-auto mb-8" />
           <p className="text-white/60 text-lg max-w-2xl mx-auto">

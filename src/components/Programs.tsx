@@ -162,13 +162,13 @@ export default function Programs() {
           >
             The Sanctuary
           </p>
-          <h2 
+          <h2
             ref={headingRef}
             className={`reveal-heading gpu-smooth font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${headingVisible ? 'is-visible' : ''}`}
             style={{ transitionDelay: '0s' }}
           >
-            Elite Ladies Fitness{' '}
-            <span className="gold-text">Programs Madurai</span>
+            Elite{' '}
+            <span className="gold-text">Fitness Programs</span>
           </h2>
           <div 
             className={`reveal-text gpu-smooth gold-line w-24 mx-auto mb-8 ${headingVisible ? 'is-visible' : ''}`}

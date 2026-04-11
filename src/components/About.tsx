@@ -114,13 +114,13 @@ export default function About() {
             >
               Our Story
             </p>
-            <h2 
+            <h2
               ref={headingRef}
               className={`reveal-heading gpu-smooth font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${headingVisible ? 'is-visible' : ''}`}
               style={{ transitionDelay: '0s' }}
             >
-              Best Fitness Programs in Madurai{' '}
-              <span className="gold-text">Since 2025</span>
+              Elite Fitness{' '}
+              <span className="gold-text">Sanctuary Since 2025</span>
             </h2>
             <div 
               className={`reveal-text gpu-smooth gold-line w-24 mx-auto mb-8 ${headingVisible ? 'is-visible' : ''}`}

@@ -308,8 +308,8 @@ export default function Pricing() {
             className={`reveal-heading gpu-smooth font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${headingVisible ? 'is-visible' : ''}`}
             style={{ transitionDelay: '0s' }}
           >
-            Gym Membership{' '}
-            <span className="gold-text">Plans Madurai</span>
+            Choose Your{' '}
+            <span className="gold-text">Membership Plans</span>
           </h2>
           <div
             className={`reveal-text gpu-smooth gold-line w-24 mx-auto mb-8 ${headingVisible ? 'is-visible' : ''}`}
