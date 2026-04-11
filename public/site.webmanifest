@@ -1,0 +1,21 @@
+{
+  "name": "Femme Flex - Women's Fitness Sanctuary",
+  "short_name": "Femme Flex",
+  "description": "Madurai's elite women-only fitness sanctuary. Aerobics, HIIT, Strength Training, Yoga & more.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#800080",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
