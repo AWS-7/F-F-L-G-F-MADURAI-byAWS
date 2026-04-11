@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useBackButtonScroll } from './hooks/useBackButtonScroll';
@@ -11,7 +12,7 @@ import DietPlans from './components/DietPlans';
 import Gallery from './components/Gallery';
 import Pricing from './components/Pricing';
 import BMICalculator from './components/BMICalculator';
-import AIDietGenerator from './components/AIDietGenerator'; // AI-powered diet plan generator
+import AIDietGenerator from './components/AIDietGenerator';
 import HealthBar from './components/HealthBar';
 import Reviews from './components/Reviews';
 import Contact from './components/Contact';
@@ -22,11 +23,9 @@ import FAQ from './components/FAQ';
 import ClassSchedule from './components/ClassSchedule';
 import Blog from './components/Blog';
 import TextMarquee from './components/TextMarquee';
+import DietPlanResult from './pages/DietPlanResult';
 
-function App() {
-  // Initialize back button scroll behavior
-  useBackButtonScroll();
-
+function HomePage() {
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -34,6 +33,7 @@ function App() {
       offset: 100,
     });
   }, []);
+
   return (
     <>
       <SmartLoader />
@@ -59,6 +59,26 @@ function App() {
       <Footer />
       <PromoPopup />
     </>
+  );
+}
+
+function AppContent() {
+  // Initialize back button scroll behavior
+  useBackButtonScroll();
+
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/diet-plan-result" element={<DietPlanResult />} />
+    </Routes>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter basename="/F-F-L-G-F-MADURAI-byAWS/">
+      <AppContent />
+    </BrowserRouter>
   );
 }
 
