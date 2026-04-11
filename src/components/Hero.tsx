@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative w-full min-h-[85vh] md:min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Background layers - particles at very back */}
       <GoldParticles />
