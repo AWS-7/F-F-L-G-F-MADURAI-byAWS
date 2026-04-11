@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useBackButtonScroll } from './hooks/useBackButtonScroll';
 import SmartLoader from './components/SmartLoader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -22,6 +23,9 @@ import Blog from './components/Blog';
 import TextMarquee from './components/TextMarquee';
 
 function App() {
+  // Initialize back button scroll behavior
+  useBackButtonScroll();
+
   useEffect(() => {
     AOS.init({
       duration: 800,
