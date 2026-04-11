@@ -303,23 +303,23 @@ export default function Pricing() {
           >
             Membership Plans
           </p>
-          <h2 
+          <h2
             ref={headingRef}
             className={`reveal-heading gpu-smooth font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${headingVisible ? 'is-visible' : ''}`}
             style={{ transitionDelay: '0s' }}
           >
-            Invest in{' '}
-            <span className="gold-text">Yourself</span>
+            Gym Membership{' '}
+            <span className="gold-text">Plans Madurai</span>
           </h2>
-          <div 
+          <div
             className={`reveal-text gpu-smooth gold-line w-24 mx-auto mb-8 ${headingVisible ? 'is-visible' : ''}`}
             style={{ transitionDelay: '0.2s' }}
           />
-          <p 
+          <p
             className={`reveal-text gpu-smooth text-white/60 text-lg max-w-2xl mx-auto mb-10 ${headerVisible ? 'is-visible' : ''}`}
             style={{ transitionDelay: '0.3s' }}
           >
-            Premium memberships for every journey. No hidden fees, pure value.
+            Affordable ladies gym membership at Kadachanenthal & Othakkadai. Premium facilities with no hidden fees.
           </p>
 
           <div

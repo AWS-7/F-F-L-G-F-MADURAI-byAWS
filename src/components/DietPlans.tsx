@@ -166,12 +166,12 @@ export default function DietPlans() {
             Nutrition Excellence
           </p>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-            Diet{' '}
-            <span className="gold-text">Plans</span>
+            Weight Loss{' '}
+            <span className="gold-text">Diet Plans Madurai</span>
           </h2>
           <div className="gold-line w-24 mx-auto mb-8" />
           <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            Fuel your fitness journey with personalized nutrition plans. Expert-designed meals that complement your workouts and accelerate results.
+            Expert-designed nutrition plans for weight loss and muscle gain. Personalized diet programs that complement your workouts at the best ladies gym in Madurai.
           </p>
         </div>
 
@@ -192,7 +192,7 @@ export default function DietPlans() {
               >
                 <img
                   src={plan.image}
-                  alt={plan.title}
+                  alt={`${plan.title} Program - Best Diet Plan for Women at Femme Flex Madurai`}
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -285,7 +285,7 @@ export default function DietPlans() {
                 >
                   <img
                     src={plan.image}
-                    alt={plan.title}
+                    alt={`${plan.title} Program - Best Diet Plan for Women at Femme Flex Madurai`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -401,7 +401,7 @@ export default function DietPlans() {
             <div className="relative h-48 md:h-64">
               <img
                 src={selectedPlan.image}
-                alt={selectedPlan.title}
+                alt={`${selectedPlan.title} Diet Program - Professional Nutrition Coaching at Femme Flex Ladies Gym`}
                 className="w-full h-full object-cover"
               />
               <div

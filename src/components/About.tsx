@@ -119,8 +119,8 @@ export default function About() {
               className={`reveal-heading gpu-smooth font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${headingVisible ? 'is-visible' : ''}`}
               style={{ transitionDelay: '0s' }}
             >
-              Born on{' '}
-              <span className="gold-text">April 11, 2025</span>
+              Best Fitness Programs in Madurai{' '}
+              <span className="gold-text">Since 2025</span>
             </h2>
             <div 
               className={`reveal-text gpu-smooth gold-line w-24 mx-auto mb-8 ${headingVisible ? 'is-visible' : ''}`}
@@ -177,7 +177,7 @@ export default function About() {
             <div className="image-reveal-mask" />
             <img
               src={femme4}
-              alt="Femme Flex Gym Interior"
+              alt="Our Women-Only Gym Facilities at Femme Flex Kadachanenthal Madurai"
               className="w-full h-72 md:h-96 object-cover"
               loading="lazy"
             />

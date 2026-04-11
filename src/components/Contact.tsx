@@ -141,12 +141,12 @@ export default function Contact() {
             Get In Touch
           </p>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-            Join{' '}
-            <span className="gold-text">Femme Flex</span>
+            Join Best Ladies{' '}
+            <span className="gold-text">Gym Madurai</span>
           </h2>
           <div className="gold-line w-24 mx-auto mb-8" />
           <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            Fill in your details and select your preferred plan. We'll contact you shortly!
+            Ready to transform? Contact Femme Flex at Kadachanenthal, Madurai. Book your free trial today!
           </p>
         </div>
 

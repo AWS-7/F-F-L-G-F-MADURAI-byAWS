@@ -23,37 +23,37 @@ const videos = [
 const galleryItems = [
   {
     src: femme2,
-    alt: 'Femme Flex Training Area',
+    alt: 'Women Training at Femme Flex - Premier Ladies Gym in Madurai Kadachanenthal',
     label: 'Training Zone',
   },
   {
     src: madurai1,
-    alt: 'Madurai Gym Equipment',
+    alt: 'Elite Fitness Equipment at Best Women-Only Gym in Madurai',
     label: 'Equipment Area',
   },
   {
     src: madurai2,
-    alt: 'Madurai Workout Space',
+    alt: 'Spacious Workout Space at Femme Flex Ladies Fitness Center Madurai',
     label: 'Workout Space',
   },
   {
     src: madurai3,
-    alt: 'Madurai Fitness Center',
+    alt: 'Premium Fitness Center Interior - Top Rated Womens Gym Madurai',
     label: 'Fitness Center',
   },
   {
     src: madurai4,
-    alt: 'Madurai Gym Interior',
+    alt: 'Modern Gym Interior Design - Elite Ladies Fitness Sanctuary Madurai',
     label: 'Gym Interior',
   },
   {
     src: madurai5,
-    alt: 'Madurai Exercise Area',
+    alt: 'Professional Exercise Area - Best Gym for Women in Kadachanenthal',
     label: 'Exercise Area',
   },
   {
     src: madurai6,
-    alt: 'Madurai Strength Zone',
+    alt: 'Strength Training Zone - Womens Weight Training Gym Madurai',
     label: 'Strength Zone',
   },
 ];
@@ -301,25 +301,25 @@ export default function Gallery() {
             className={`reveal-subtitle gpu-smooth text-xs font-semibold tracking-[0.4em] uppercase mb-4 ${subtitleVisible ? 'is-visible' : ''}`}
             style={{ color: '#800080', transitionDelay: '0.1s' }}
           >
-            Inside The Sanctuary
+            Tour Our Ladies Gym
           </p>
-          <h2 
+          <h2
             ref={headingRef}
             className={`reveal-heading gpu-smooth font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${headingVisible ? 'is-visible' : ''}`}
             style={{ transitionDelay: '0s' }}
           >
-            Our{' '}
-            <span className="gold-text">Spaces</span>
+            Our Women-Only{' '}
+            <span className="gold-text">Gym Facilities</span>
           </h2>
-          <div 
+          <div
             className={`reveal-text gpu-smooth gold-line w-24 mx-auto mb-8 ${headingVisible ? 'is-visible' : ''}`}
             style={{ transitionDelay: '0.2s' }}
           />
-          <p 
+          <p
             className={`reveal-text gpu-smooth text-white/60 text-lg max-w-2xl mx-auto ${headerVisible ? 'is-visible' : ''}`}
             style={{ transitionDelay: '0.3s' }}
           >
-            World-class facilities designed to inspire and elevate your every workout.
+            World-class fitness facilities at Kadachanenthal designed to inspire and elevate your every workout.
           </p>
         </div>
 

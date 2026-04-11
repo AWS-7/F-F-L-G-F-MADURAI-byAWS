@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Femme Flex Fitness"
+          alt="Femme Flex Ladies Gym Interior - Best Women's Fitness Center in Madurai"
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
@@ -31,12 +31,12 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p
+        <h1
           className="text-xs sm:text-sm font-semibold tracking-[0.4em] uppercase mb-6 animate-fadeIn"
           style={{ color: '#800080', animationFillMode: 'both' }}
         >
-          Madurai's Elite Wellness Sanctuary
-        </p>
+          Madurai's Elite Wellness Sanctuary for Women
+        </h1>
 
         <div className="overflow-hidden mb-2">
           <h1
@@ -65,12 +65,12 @@ export default function Hero() {
 
         <div className="gold-line w-32 mx-auto mb-8" style={{ animation: 'fadeIn 1s ease-out 0.6s both' }} />
 
-        <p
+        <h2
           className="text-lg sm:text-xl md:text-2xl text-white/90 font-light tracking-wide leading-relaxed max-w-2xl mx-auto mb-4"
           style={{ animation: 'fadeInUp 1s ease-out 0.7s both' }}
         >
-          Redefining modern fitness for the modern woman
-        </p>
+          Best Women's Gym in Madurai - Weight Loss & Strength Training
+        </h2>
         <p
           className="text-sm text-white/50 tracking-[0.2em] uppercase mb-10"
           style={{ animation: 'fadeIn 1s ease-out 0.9s both', color: '#D4AF37' }}

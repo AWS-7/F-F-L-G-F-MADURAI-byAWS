@@ -167,8 +167,8 @@ export default function Programs() {
             className={`reveal-heading gpu-smooth font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${headingVisible ? 'is-visible' : ''}`}
             style={{ transitionDelay: '0s' }}
           >
-            Our{' '}
-            <span className="gold-text">Programs</span>
+            Elite Ladies Fitness{' '}
+            <span className="gold-text">Programs Madurai</span>
           </h2>
           <div 
             className={`reveal-text gpu-smooth gold-line w-24 mx-auto mb-8 ${headingVisible ? 'is-visible' : ''}`}
@@ -199,7 +199,7 @@ export default function Programs() {
               >
                 <img
                   src={program.image}
-                  alt={program.title}
+                  alt={`${program.title} Classes at Femme Flex - Best Women's Gym in Madurai`}
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -280,7 +280,7 @@ export default function Programs() {
               >
                 <img
                   src={program.image}
-                  alt={program.title}
+                  alt={`${program.title} Classes at Femme Flex - Best Women's Gym in Madurai`}
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -384,7 +384,7 @@ export default function Programs() {
             <div className="relative h-48 md:h-64">
               <img
                 src={selectedProgram.image}
-                alt={selectedProgram.title}
+                alt={`${selectedProgram.title} Training at Femme Flex Ladies Gym Kadachanenthal`}
                 className="w-full h-full object-cover"
               />
               <div

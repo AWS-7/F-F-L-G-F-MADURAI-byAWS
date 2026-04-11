@@ -142,12 +142,12 @@ export default function Reviews() {
             What Our Members Say
           </p>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-            Real{' '}
-            <span className="gold-text">Stories</span>
+            Client Reviews - Top{' '}
+            <span className="gold-text">Rated Gym Madurai</span>
           </h2>
           <div className="gold-line w-24 mx-auto mb-6" />
           <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            Hundreds of women. One community. Infinite transformations.
+            See why we're the best ladies gym in Madurai. Real transformations from our members at Kadachanenthal.
           </p>
         </div>
       </div>
