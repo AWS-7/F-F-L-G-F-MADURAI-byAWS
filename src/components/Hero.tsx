@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative w-full min-h-[70vh] md:min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Background layers - particles at very back */}
       <GoldParticles />
@@ -109,7 +109,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center">
+      <div className="absolute bottom-4 md:bottom-8 left-0 right-0 flex justify-center">
         <button
           onClick={scrollToAbout}
           className="flex flex-col items-center gap-2 text-white/40 hover:text-metallic-gold transition-colors duration-300 animate-bounce"
