@@ -158,8 +158,8 @@ export default function AIDietGenerator() {
           </h2>
           <div className="gold-line w-24 mx-auto mb-8" />
           <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            Get a personalized 7-day meal plan tailored to your goals, preferences, and lifestyle. 
-            Designed for South Indian cuisine.
+            Get a personalized 7-day meal plan tailored to your fitness goals, dietary preferences, and lifestyle.
+            Featuring authentic South Indian cuisine with healthy options.
           </p>
         </div>
 
