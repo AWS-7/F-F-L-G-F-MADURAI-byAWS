@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Sparkles, ChevronRight } from 'lucide-react';
-import DietPlanModal from './DietPlanModal';
+import DietPlanModal from './DietPlanModal.tsx';
 
 export default function AIDietGenerator() {
   const [showModal, setShowModal] = useState(false);

@@ -162,8 +162,15 @@ export default function DietPlanResult() {
     }
   };
 
-  const handleNewPlan = () => {
-    navigate('/');
+  const handleBackToGenerator = () => {
+    navigate('/#ai-diet');
+    // Scroll to diet generator section after navigation
+    setTimeout(() => {
+      const element = document.getElementById('ai-diet');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   };
 
   if (loading) {
@@ -210,11 +217,11 @@ export default function DietPlanResult() {
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <button
-            onClick={handleNewPlan}
+            onClick={handleBackToGenerator}
             className="flex items-center gap-2 text-white/60 hover:text-white transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
-            Back to Home
+            Back to Diet Generator
           </button>
           
           <div className="flex gap-3">
@@ -230,7 +237,7 @@ export default function DietPlanResult() {
               Download PDF
             </button>
             <button
-              onClick={handleNewPlan}
+              onClick={handleBackToGenerator}
               className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded border transition-all hover:scale-105"
               style={{
                 borderColor: 'rgba(128,0,128,0.5)',

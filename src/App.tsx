@@ -32,6 +32,17 @@ function HomePage() {
       once: true,
       offset: 100,
     });
+
+    // Handle hash-based scrolling (e.g., when returning from Diet Plan Result page)
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 500); // Wait for AOS animations to initialize
+    }
   }, []);
 
   return (
