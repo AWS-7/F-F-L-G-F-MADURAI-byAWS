@@ -11,7 +11,7 @@ import DietPlans from './components/DietPlans';
 import Gallery from './components/Gallery';
 import Pricing from './components/Pricing';
 import BMICalculator from './components/BMICalculator';
-import AIDietGenerator from './components/AIDietGenerator';
+import AIDietGenerator from './components/AIDietGenerator'; // AI-powered diet plan generator
 import HealthBar from './components/HealthBar';
 import Reviews from './components/Reviews';
 import Contact from './components/Contact';
