@@ -19,6 +19,7 @@ import CTABanner from './components/CTABanner';
 import FAQ from './components/FAQ';
 import ClassSchedule from './components/ClassSchedule';
 import Blog from './components/Blog';
+import TextMarquee from './components/TextMarquee';
 
 function App() {
   useEffect(() => {
@@ -34,6 +35,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <TextMarquee />
         <About />
         <BMICalculator />
         <Programs />

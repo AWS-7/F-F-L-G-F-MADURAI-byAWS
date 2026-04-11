@@ -109,6 +109,42 @@
   100% { transform: translateX(-50%); }
 }
 
+/* ============================================
+   INFINITE TEXT MARQUEE ANIMATIONS
+   ============================================ */
+
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 30s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 30s linear infinite;
+}
+
+/* Pause animation on hover */
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive marquee speed */
+@media (max-width: 768px) {
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation-duration: 20s;
+  }
+}
+
 .gold-line {
   height: 2px;
   background: linear-gradient(90deg, transparent, #D4AF37, transparent);
