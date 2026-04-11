@@ -89,10 +89,11 @@ function GalleryCard({ src, alt, label, onClick, isMobile = false }: { src: stri
       <img
         src={imgError ? fallbackSrc : src}
         alt={alt}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         loading="lazy"
-        onError={() => setImgError(true)}
+        decoding="async"
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         style={{ objectPosition: 'center' }}
+        onError={() => setImgError(true)}
       />
       <div
         className="absolute inset-0 transition-all duration-300"

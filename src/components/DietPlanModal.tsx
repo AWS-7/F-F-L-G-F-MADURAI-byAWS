@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo, useCallback, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X, Target, Leaf, DollarSign, ChevronRight, ChevronLeft, Utensils, User } from 'lucide-react';
 
@@ -13,7 +13,7 @@ interface FormData {
   budget: 'low' | 'medium' | 'high';
 }
 
-export default function DietPlanModal({ onClose }: { onClose: () => void }) {
+const DietPlanModal = memo(function DietPlanModal({ onClose }: { onClose: () => void }) {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
@@ -29,27 +29,27 @@ export default function DietPlanModal({ onClose }: { onClose: () => void }) {
 
   const totalSteps = 4;
 
-  const updateField = (field: keyof FormData, value: string) => {
-    setFormData({ ...formData, [field]: value });
-  };
+  const updateField = useCallback((field: keyof FormData, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  }, []);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (currentStep < totalSteps) {
-      setCurrentStep(currentStep + 1);
+      setCurrentStep(prev => prev + 1);
     } else {
       // Navigate to results page with form data
       navigate('/diet-plan-result', { state: { formData } });
       onClose();
     }
-  };
+  }, [currentStep, formData, navigate, onClose, totalSteps]);
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
+      setCurrentStep(prev => prev - 1);
     }
-  };
+  }, [currentStep]);
 
-  const canProceed = () => {
+  const canProceed = useMemo(() => {
     switch (currentStep) {
       case 1:
         return formData.weight && formData.height && formData.age && formData.gender;
@@ -62,7 +62,7 @@ export default function DietPlanModal({ onClose }: { onClose: () => void }) {
       default:
         return false;
     }
-  };
+  }, [currentStep, formData]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -319,11 +319,11 @@ export default function DietPlanModal({ onClose }: { onClose: () => void }) {
 
           <button
             onClick={handleNext}
-            disabled={!canProceed()}
+            disabled={!canProceed}
             className="flex items-center gap-2 px-6 py-3 text-sm font-bold tracking-wider uppercase rounded transition-all disabled:opacity-50"
             style={{
-              background: canProceed() ? 'linear-gradient(135deg, #D4AF37, #F2D060)' : 'rgba(255,255,255,0.1)',
-              color: canProceed() ? '#111' : 'rgba(255,255,255,0.4)',
+              background: canProceed ? 'linear-gradient(135deg, #D4AF37, #F2D060)' : 'rgba(255,255,255,0.1)',
+              color: canProceed ? '#111' : 'rgba(255,255,255,0.4)',
             }}
           >
             {currentStep === totalSteps ? 'Generate Plan' : 'Next'}
@@ -333,4 +333,6 @@ export default function DietPlanModal({ onClose }: { onClose: () => void }) {
       </div>
     </div>
   );
-}
+});
+
+export default DietPlanModal;

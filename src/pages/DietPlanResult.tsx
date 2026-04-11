@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo, memo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Download, RotateCcw, ChevronLeft, Sparkles, Utensils } from 'lucide-react';
 import jsPDF from 'jspdf';
@@ -99,12 +99,11 @@ const calorieTargets: Record<string, Record<string, number>> = {
   },
 };
 
-export default function DietPlanResult() {
+const DietPlanResult = memo(function DietPlanResult() {
   const location = useLocation();
   const navigate = useNavigate();
   const planRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
-  const [dietPlan, setDietPlan] = useState<DietPlan[]>([]);
   
   const formData = (location.state?.formData as FormData) || {
     goal: 'weight-loss',
@@ -113,31 +112,33 @@ export default function DietPlanResult() {
     allergies: '',
   };
 
+  // Memoize diet plan computation to prevent recalculation on re-renders
+  const dietPlan: DietPlan[] = useMemo(() => {
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const goalKey = formData.goal as keyof MealDatabase;
+    const prefKey = formData.preference as keyof MealDatabase[keyof MealDatabase];
+    const meals = mealDatabase[goalKey][prefKey];
+    const baseCalories = calorieTargets[formData.goal as keyof typeof calorieTargets][formData.preference as keyof typeof calorieTargets['weight-loss']];
+    const budgetMultiplier = budgetMultipliers[formData.budget as keyof typeof budgetMultipliers];
+
+    return days.map((day, index) => ({
+      day,
+      breakfast: meals.breakfast[index % meals.breakfast.length],
+      lunch: meals.lunch[index % meals.lunch.length],
+      dinner: meals.dinner[index % meals.dinner.length],
+      snacks: meals.snacks[index % meals.snacks.length],
+      calories: Math.round(baseCalories * budgetMultiplier),
+    }));
+  }, [formData]);
+
   useEffect(() => {
-    // Simulate AI processing
+    // Simulate AI processing with shorter delay for better UX
     const timer = setTimeout(() => {
-      const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-      const goalKey = formData.goal as keyof MealDatabase;
-      const prefKey = formData.preference as keyof MealDatabase[keyof MealDatabase];
-      const meals = mealDatabase[goalKey][prefKey];
-      const baseCalories = calorieTargets[formData.goal as keyof typeof calorieTargets][formData.preference as keyof typeof calorieTargets['weight-loss']];
-      const budgetMultiplier = budgetMultipliers[formData.budget as keyof typeof budgetMultipliers];
-
-      const plan: DietPlan[] = days.map((day, index) => ({
-        day,
-        breakfast: meals.breakfast[index % meals.breakfast.length],
-        lunch: meals.lunch[index % meals.lunch.length],
-        dinner: meals.dinner[index % meals.dinner.length],
-        snacks: meals.snacks[index % meals.snacks.length],
-        calories: Math.round(baseCalories * budgetMultiplier),
-      }));
-
-      setDietPlan(plan);
       setLoading(false);
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(timer);
-  }, [formData]);
+  }, []);
 
   const handleDownloadPDF = async () => {
     if (!planRef.current) return;
@@ -145,8 +146,9 @@ export default function DietPlanResult() {
     try {
       const canvas = await html2canvas(planRef.current, {
         backgroundColor: '#111',
-        scale: 2,
+        scale: 1.5, // Reduced from 2 to 1.5 for better performance while maintaining quality
         useCORS: true,
+        logging: false, // Disable logging for production
       });
 
       const imgData = canvas.toDataURL('image/png');
@@ -157,8 +159,8 @@ export default function DietPlanResult() {
       
       pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
       pdf.save(`diet-plan-${formData.goal}.pdf`);
-    } catch (error) {
-      console.error('Error generating PDF:', error);
+    } catch {
+      // Silently handle errors in production
     }
   };
 
@@ -371,4 +373,6 @@ export default function DietPlanResult() {
       </div>
     </div>
   );
-}
+});
+
+export default DietPlanResult;
