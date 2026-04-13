@@ -338,7 +338,7 @@ function MobileLocationsCarousel() {
       phone: '90808 82873',
       hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
       status: 'Open Now',
-      mapUrl: 'https://maps.google.com/?q=Aysha+Complex+2/252+Rajeev+Nagar+Otthakadai+Madurai+625107',
+      mapUrl: 'https://www.google.com/maps/place/Femme+Flex+Ladies+Gym+%26+Fitness/@9.9178318,78.1228236,13z/data=!4m10!1m2!2m1!1s1st+Floor,+Aysha+Complex,+2%2F252,+Rajeev+Nagar,+Otthakadai,+Madurai,+Near+Mohan+Hospital,+Anbu+Nagar,+Thirumogur+Road,+Neelamega+Nagar,+Madurai-625107,+Tamil+Nadu!3m6!1s0x3b00c5e2bd4d3185:0xccb59abf1fdd2424!8m2!3d9.957596!4d78.1906911!15sCqEBMXN0IEZsb29yLCBBeXNoYSBDb21wbGV4LCAyLzI1MiwgUmFqZWV2IE5hZ2FyLCBPdHRoYWthZGFpLCBNYWR1cmFpLCBOZWFyIE1vaGFuIEhvc3BpdGFsLCBBbmJ1IE5hZ2FyLCBUaGlydW1vZ3VyIFJvYWQsIE5lZWxhbWVnYSBOYWdhciwgTWFkdXJhaS02MjUxMDcsIFRhbWlsIE5hZHVamQEilgExc3QgZmxvb3IgYXlzaGEgY29tcGxleCAyIDI1MiByYWplZXYgbmFnYXIgb3R0aGFrYWRhaSBtYWR1cmFpIG5lYXIgbW9oYW4gaG9zcGl0YWwgYW5idSBuYWdhciB0aGlydW1vZ3VyIHJvYWQgbmVlbGFtZWdhIG5hZ2FyIG1hZHVyYWkgNjI1MTA3IHRhbWlsIG5hZHWSAQ5maXRuZXNzX2NlbnRlcpoBI0NoWkRTVWhOTUc5blMwVkxTM05vWTJadE4wOTZjMUpSRUFF4AEA-gEECAAQLw!16s%2Fg%2F11ycc3d3j_?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D',
     },
   ];
 
@@ -717,7 +717,7 @@ export default function ClassSchedule() {
                 background: 'linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(128,0,128,0.05) 100%)',
                 border: '1px solid rgba(212,175,55,0.3)',
               }}
-              onClick={() => window.open('https://maps.google.com/?q=Ayisha+complex+1st+floor+thirumogur+road+Y.othakadai+Madurai+625107', '_blank')}
+              onClick={() => window.open('https://www.google.com/maps/place/Femme+Flex+Ladies+Gym+%26+Fitness/@9.9178318,78.1228236,13z/data=!4m10!1m2!2m1!1s1st+Floor,+Aysha+Complex,+2%2F252,+Rajeev+Nagar,+Otthakadai,+Madurai,+Near+Mohan+Hospital,+Anbu+Nagar,+Thirumogur+Road,+Neelamega+Nagar,+Madurai-625107,+Tamil+Nadu!3m6!1s0x3b00c5e2bd4d3185:0xccb59abf1fdd2424!8m2!3d9.957596!4d78.1906911!15sCqEBMXN0IEZsb29yLCBBeXNoYSBDb21wbGV4LCAyLzI1MiwgUmFqZWV2IE5hZ2FyLCBPdHRoYWthZGFpLCBNYWR1cmFpLCBOZWFyIE1vaGFuIEhvc3BpdGFsLCBBbmJ1IE5hZ2FyLCBUaGlydW1vZ3VyIFJvYWQsIE5lZWxhbWVnYSBOYWdhciwgTWFkdXJhaS02MjUxMDcsIFRhbWlsIE5hZHVamQEilgExc3QgZmxvb3IgYXlzaGEgY29tcGxleCAyIDI1MiByYWplZXYgbmFnYXIgb3R0aGFrYWRhaSBtYWR1cmFpIG5lYXIgbW9oYW4gaG9zcGl0YWwgYW5idSBuYWdhciB0aGlydW1vZ3VyIHJvYWQgbmVlbGFtZWdhIG5hZ2FyIG1hZHVyYWkgNjI1MTA3IHRhbWlsIG5hZHWSAQ5maXRuZXNzX2NlbnRlcpoBI0NoWkRTVWhOTUc5blMwVkxTM05vWTJadE4wOTZjMUpSRUFF4AEA-gEECAAQLw!16s%2Fg%2F11ycc3d3j_?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D', '_blank')}
             >
               <div className="flex items-start gap-4">
                 <div 
