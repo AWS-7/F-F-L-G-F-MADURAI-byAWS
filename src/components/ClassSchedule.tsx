@@ -327,7 +327,7 @@ function MobileLocationsCarousel() {
     {
       name: 'Femmeflex Ladies GYM Fitness Studio',
       address: 'No 1/281-A, Alagar Kovil Main Road, Anthony Church Opposite, Kadhakinaru, Madurai - 625 104',
-      phone: '90808 82873',
+      phone: '93442 49843',
       hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
       status: 'Open Now',
       mapUrl: 'https://maps.google.com/?q=No+1/281-A+Alagar+Kovil+Main+Road+Anthony+Church+Opposite+Kadhakinaru+Madurai+625104',
@@ -335,7 +335,7 @@ function MobileLocationsCarousel() {
     {
       name: 'Femmeflex Ladies GYM Fitness Studio',
       address: 'Ayisha Complex, 1st Floor, Thirumogur Road, Y. Othakadai, Madurai - 625 107',
-      phone: '93442 49843',
+      phone: '90808 82873',
       hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
       status: 'Open Now',
       mapUrl: 'https://maps.google.com/?q=Ayisha+complex+1st+floor+thirumogur+road+Y.othakadai+Madurai+625107',
@@ -687,7 +687,7 @@ export default function ClassSchedule() {
                   <h4 className="font-semibold text-white mb-1">Femmeflex Ladies GYM Fitness Studio</h4>
                   <p className="text-white/60 text-sm mb-2">No 1/281-A, Alagar Kovil Main Road,<br/>Anthony Church Opposite, Kadhakinaru,<br/>Madurai - 625 104</p>
                   <div className="flex items-center gap-2 text-sm" style={{ color: '#D4AF37' }}>
-                    <span>📞 90808 82873</span>
+                    <span>📞 93442 49843</span>
                   </div>
                   <p className="text-white/40 text-xs mt-2">Mon–Sat: 5:30 AM – 9:00 PM</p>
                   <p className="text-white/60 text-xs mt-2 flex items-center gap-1">
@@ -730,7 +730,7 @@ export default function ClassSchedule() {
                   <h4 className="font-semibold text-white mb-1">Femmeflex Ladies GYM Fitness Studio</h4>
                   <p className="text-white/60 text-sm mb-2">Ayisha Complex, 1st Floor,<br/>Thirumogur Road,<br/>Y. Othakadai,<br/>Madurai - 625 107</p>
                   <div className="flex items-center gap-2 text-sm" style={{ color: '#D4AF37' }}>
-                    <span>📞 93442 49843</span>
+                    <span>📞 90808 82873</span>
                   </div>
                   <p className="text-white/40 text-xs mt-2">Mon–Sat: 5:30 AM – 9:00 PM</p>
                   <p className="text-white/60 text-xs mt-2 flex items-center gap-1">

@@ -4,13 +4,13 @@ const branches = [
   {
     name: 'Kadachanenthal Branch',
     address: 'Kadachanenthal, Madurai, Tamil Nadu',
-    phone: '90808 82873',
+    phone: '93442 49843',
     hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
   },
   {
     name: 'Othakkadai Branch',
     address: 'Othakkadai, Madurai, Tamil Nadu',
-    phone: '93442 49843',
+    phone: '90808 82873',
     hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
   },
 ];
@@ -133,16 +133,16 @@ export default function Footer() {
             </h4>
             <div className="space-y-2">
                 <a
-                  href="tel:9080882873"
-                  className="text-white/50 hover:text-white text-xs transition-colors duration-200 block"
-                >
-                  90808 82873
-                </a>
-                <a
                   href="tel:9344249843"
                   className="text-white/50 hover:text-white text-xs transition-colors duration-200 block"
                 >
                   93442 49843
+                </a>
+                <a
+                  href="tel:9080882873"
+                  className="text-white/50 hover:text-white text-xs transition-colors duration-200 block"
+                >
+                  90808 82873
                 </a>
                 <p className="text-white/30 text-xs tracking-wider">Mon–Sat: 5:30 AM – 9:00 PM</p>
             </div>
