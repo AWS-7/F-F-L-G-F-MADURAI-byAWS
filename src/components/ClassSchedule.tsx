@@ -334,11 +334,11 @@ function MobileLocationsCarousel() {
     },
     {
       name: 'Femmeflex Ladies GYM Fitness Studio',
-      address: 'Ayisha Complex, 1st Floor, Thirumogur Road, Y. Othakadai, Madurai - 625 107',
+      address: '1st Floor, Aysha Complex, 2/252, Rajeev Nagar, Otthakadai, Madurai, Near Mohan Hospital, Anbu Nagar, Thirumogur Road, Neelamega Nagar, Madurai-625107, Tamil Nadu',
       phone: '90808 82873',
       hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
       status: 'Open Now',
-      mapUrl: 'https://maps.google.com/?q=Ayisha+complex+1st+floor+thirumogur+road+Y.othakadai+Madurai+625107',
+      mapUrl: 'https://maps.google.com/?q=Aysha+Complex+2/252+Rajeev+Nagar+Otthakadai+Madurai+625107',
     },
   ];
 
@@ -728,7 +728,7 @@ export default function ClassSchedule() {
                 </div>
                 <div className="flex-1">
                   <h4 className="font-semibold text-white mb-1">Femmeflex Ladies GYM Fitness Studio</h4>
-                  <p className="text-white/60 text-sm mb-2">Ayisha Complex, 1st Floor,<br/>Thirumogur Road,<br/>Y. Othakadai,<br/>Madurai - 625 107</p>
+                  <p className="text-white/60 text-sm mb-2">1st Floor, Aysha Complex, 2/252,<br/>Rajeev Nagar, Otthakadai, Madurai,<br/>Near Mohan Hospital, Anbu Nagar,<br/>Thirumogur Road, Neelamega Nagar,<br/>Madurai-625107, Tamil Nadu</p>
                   <div className="flex items-center gap-2 text-sm" style={{ color: '#D4AF37' }}>
                     <span>📞 90808 82873</span>
                   </div>
