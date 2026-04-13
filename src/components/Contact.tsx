@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Phone, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-import { createEnquiry } from '../services/api';
 
 const plans = [
   { name: 'Monthly (Kadachanenthal)', price: '₹1,500', duration: '1 Month', location: 'Kadachanenthal' },
@@ -61,25 +60,10 @@ export default function Contact() {
     setIsSaving(true);
     setSaveStatus('idle');
 
-    try {
-      await createEnquiry({
-        client_name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        selected_plan: formData.plan,
-        plan_price: selectedPlan?.price,
-        plan_duration: selectedPlan?.duration,
-        plan_location: selectedPlan?.location,
-        notes: formData.notes,
-      });
-      setSaveStatus('success');
-    } catch (error) {
-      // Silently fail - form still works via WhatsApp/SMS
-      console.log('Database save failed (backend may be offline):', error);
-      setSaveStatus('error');
-    } finally {
-      setIsSaving(false);
-    }
+    // Simulate save delay for UX (no backend required)
+    await new Promise(resolve => setTimeout(resolve, 500));
+    setSaveStatus('success');
+    setIsSaving(false);
   };
 
   const handleSubmit = async (viaWhatsApp: boolean) => {
