@@ -24,13 +24,13 @@ const branches = [
   {
     name: 'Kadachanenthal Branch',
     address: 'Kadachanenthal, Madurai, Tamil Nadu',
-    phone: '90808 82873',
+    phone: '93442 49843',
     hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
   },
   {
     name: 'Othakkadai Branch',
     address: 'Othakkadai, Madurai, Tamil Nadu',
-    phone: '93442 49843',
+    phone: '90808 82873',
     hours: 'Mon–Sat: 5:30 AM – 9:00 PM',
   },
 ];
