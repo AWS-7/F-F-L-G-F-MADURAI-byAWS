@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { BookOpen, Clock, ArrowRight, User, ChevronLeft, Share2, Heart, ChevronRight as ChevronRightIcon } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver.js';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const categories = ['All', 'Fitness Tips', 'Nutrition', 'Yoga', 'Wellness', 'Success Stories'];
 

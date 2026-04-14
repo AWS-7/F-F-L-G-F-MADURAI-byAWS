@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver.js';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { Calculator, ArrowRight, Info, CheckCircle } from 'lucide-react';
 
 export default function BMICalculator() {

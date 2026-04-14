@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Clock, MapPin, Users, ChevronRight, BookOpen, X, Check, ChevronLeft, ChevronRight as ChevronRightIcon } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver.js';
-import { useSectionReveal } from '../hooks/useParallaxReveal.js';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useSectionReveal } from '../hooks/useParallaxReveal';
 
 const locationsList = ['All', 'Kadachanenthal', 'Othakkadai'];
 const classTypes = ['All', 'Yoga', 'Zumba', 'Aerobics', 'Personal Training', 'Strength Training'];

@@ -1,6 +1,6 @@
 import { ChevronDown } from 'lucide-react';
 import heroImage from '../images/aiiii.jpg';
-import GoldParticles from './GoldParticles.js';
+import GoldParticles from './GoldParticles';
 
 export default function Hero() {
   const scrollToAbout = () => {

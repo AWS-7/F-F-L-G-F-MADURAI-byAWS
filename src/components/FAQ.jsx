@@ -1,5 +1,5 @@
 import { ChevronDown, HelpCircle } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver.js';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { useState } from 'react';
 
 const faqs = [

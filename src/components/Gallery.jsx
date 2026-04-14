@@ -1,5 +1,5 @@
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver.js';
-import { useSectionReveal } from '../hooks/useParallaxReveal.js';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useSectionReveal } from '../hooks/useParallaxReveal';
 import { useEffect, useRef, useState } from 'react';
 import { X, ChevronLeft, ChevronRight, Instagram, Facebook } from 'lucide-react';
 

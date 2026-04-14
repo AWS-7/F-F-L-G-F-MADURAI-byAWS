@@ -1,5 +1,5 @@
 import { Star, Quote } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver.js';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const reviews = [
   {

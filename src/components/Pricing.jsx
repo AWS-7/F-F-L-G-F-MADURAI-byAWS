@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Check, Crown, Star, Leaf, Music2, Layers } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver.js';
-import { useSectionReveal } from '../hooks/useParallaxReveal.js';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useSectionReveal } from '../hooks/useParallaxReveal';
 import confetti from 'canvas-confetti';
 
 const branches = {

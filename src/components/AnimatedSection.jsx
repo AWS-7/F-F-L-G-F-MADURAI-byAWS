@@ -1,4 +1,4 @@
-import { useSectionReveal } from '../hooks/useParallaxReveal.js';
+import { useSectionReveal } from '../hooks/useParallaxReveal';
 
 export function AnimatedSection({ children, className = '', delay = 0 }) {
   const { ref, isVisible } = useSectionReveal();

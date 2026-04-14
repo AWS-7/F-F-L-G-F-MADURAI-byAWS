@@ -1,6 +1,6 @@
 import { Shield, Heart, Star, Users } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver.js';
-import { useSectionReveal } from '../hooks/useParallaxReveal.js';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useSectionReveal } from '../hooks/useParallaxReveal';
 import { useState, useEffect } from 'react';
 import femme4 from '../images/femme4.webp';
 

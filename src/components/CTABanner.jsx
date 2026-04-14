@@ -1,5 +1,5 @@
 import { ArrowRight, Phone, MapPin, Sparkles } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver.js';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import confetti from 'canvas-confetti';
 
 export default function CTABanner() {

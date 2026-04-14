@@ -1,5 +1,5 @@
 import { Droplets, Zap, Apple } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver.js';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const menuItems = [
   {

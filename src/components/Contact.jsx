@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Phone, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver.js';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const plans = [
   { name: 'Monthly (Kadachanenthal)', price: '₹1,500', duration: '1 Month', location: 'Kadachanenthal' },
