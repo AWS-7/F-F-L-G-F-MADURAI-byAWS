@@ -86,8 +86,11 @@ function AppContent() {
 }
 
 function App() {
+  // Use '/' for production/custom domains (Netlify), or repo name for GitHub Pages development
+  const basename = import.meta.env.PROD ? '/' : '/F-F-L-G-F-MADURAI-byAWS/';
+  
   return (
-    <BrowserRouter basename="/F-F-L-G-F-MADURAI-byAWS/">
+    <BrowserRouter basename={basename}>
       <AppContent />
     </BrowserRouter>
   );
